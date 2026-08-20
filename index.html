@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Official website of SUNNY ELDR. Music, videos, releases and official links." />
+  <meta property="og:title" content="SUNNY ELDR | Official Website" />
+  <meta property="og:description" content="Official website of SUNNY ELDR. Music, videos, releases and official links." />
+  <meta property="og:type" content="website" />
+  <title>SUNNY ELDR | Official Website</title>
+  <style>
+    :root{
+      --bg:#070707;
+      --panel:#101010;
+      --soft:#171717;
+      --text:#f3f0ea;
+      --muted:#a59e94;
+      --line:rgba(255,255,255,.11);
+      --accent:#b76b32;
+      --accent2:#e0ad77;
+      --max:1180px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(183,107,50,.14), transparent 26%),
+        radial-gradient(circle at 15% 28%, rgba(255,255,255,.045), transparent 28%),
+        var(--bg);
+      color:var(--text);
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{width:min(calc(100% - 40px), var(--max));margin:auto}
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      border-bottom:1px solid transparent;
+      transition:.25s ease;
+    }
+    .nav.scrolled{background:rgba(7,7,7,.82);backdrop-filter:blur(16px);border-color:var(--line)}
+    .nav-inner{height:76px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-size:18px;font-weight:800;letter-spacing:.18em}
+    .nav-links{display:flex;gap:24px;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
+    .nav-links a{color:#d8d2c9}
+    .nav-links a:hover{color:#fff}
+    .menu-btn{display:none;background:none;border:1px solid var(--line);color:white;padding:9px 12px;border-radius:999px}
+
+    .hero{
+      min-height:100vh;display:grid;align-items:end;position:relative;overflow:hidden;
+      padding:120px 0 72px;
+    }
+    .hero::before{
+      content:"";position:absolute;inset:0;
+      background:
+        linear-gradient(to top, #070707 0%, rgba(7,7,7,.26) 55%, rgba(7,7,7,.48) 100%),
+        linear-gradient(120deg, rgba(183,107,50,.13), transparent 35%);
+      z-index:-1;
+    }
+    .hero-image{
+      position:absolute;inset:0;z-index:-2;
+      background:
+        radial-gradient(circle at 65% 40%, rgba(209,145,85,.16), transparent 18%),
+        linear-gradient(135deg,#141414,#050505 55%,#1a100a);
+      transform:scale(1.02);
+    }
+    .hero-content{max-width:880px}
+    .eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--accent2);margin-bottom:18px}
+    h1{font-size:clamp(58px,10vw,140px);line-height:.84;margin:0 0 20px;letter-spacing:-.055em}
+    .tagline{font-size:clamp(18px,2vw,28px);color:#d8d0c7;margin:0 0 30px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      min-height:48px;padding:0 20px;border-radius:999px;border:1px solid var(--line);
+      text-transform:uppercase;font-weight:700;font-size:12px;letter-spacing:.12em;
+      transition:.2s ease;
+    }
+    .btn.primary{background:var(--text);color:#0b0b0b;border-color:var(--text)}
+    .btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.35)}
+    .platforms{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+    .platforms a{
+      font-size:12px;padding:8px 12px;border:1px solid var(--line);border-radius:999px;color:#c9c2b8
+    }
+
+    section{padding:96px 0;border-top:1px solid var(--line)}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:34px}
+    .section-head h2{font-size:clamp(38px,5vw,72px);margin:0;letter-spacing:-.04em}
+    .section-head p{max-width:520px;color:var(--muted);margin:0}
+    .release{
+      display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:center
+    }
+    .cover{
+      aspect-ratio:1;border:1px solid var(--line);border-radius:4px;
+      background:linear-gradient(145deg,#1a1a1a,#0d0d0d 52%,#24140c);
+      display:grid;place-items:center;overflow:hidden;
+      box-shadow:0 30px 80px rgba(0,0,0,.35)
+    }
+    .cover span{font-size:clamp(32px,5vw,72px);font-weight:800;letter-spacing:.08em;color:#ded7cf}
+    .release-meta{color:var(--accent2);font-size:12px;letter-spacing:.18em;text-transform:uppercase}
+    .release h3{font-size:clamp(42px,6vw,82px);line-height:.95;margin:12px 0 20px}
+    .release p{color:var(--muted);max-width:620px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));
+      border:1px solid var(--line);border-radius:6px;overflow:hidden;transition:.25s ease
+    }
+    .card:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.22)}
+    .thumb{aspect-ratio:16/10;background:linear-gradient(135deg,#181818,#0b0b0b 60%,#2a160c);display:grid;place-items:center}
+    .thumb::after{content:"▶";width:48px;height:48px;border:1px solid rgba(255,255,255,.35);border-radius:50%;display:grid;place-items:center;padding-left:3px}
+    .card-body{padding:18px}
+    .card-body h3{margin:0 0 6px;font-size:18px}
+    .card-body p{margin:0;color:var(--muted);font-size:14px}
+
+    .about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+    .portrait{min-height:620px;background:linear-gradient(145deg,#161616,#090909 55%,#20130c);border:1px solid var(--line)}
+    .about h2{font-size:clamp(42px,5vw,78px);line-height:1;margin:0 0 20px}
+    .about p{color:var(--muted)}
+    .identity{color:var(--accent2);letter-spacing:.13em;text-transform:uppercase;font-size:12px;margin-bottom:18px}
+    .socials{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .social{
+      border:1px solid var(--line);padding:24px 16px;text-align:center;border-radius:4px;
+      font-size:13px;text-transform:uppercase;letter-spacing:.11em;transition:.2s ease
+    }
+    .social:hover{background:var(--soft);transform:translateY(-2px)}
+    footer{padding:38px 0 50px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .small-links{display:flex;gap:18px;flex-wrap:wrap}
+    .placeholder-note{margin-top:18px;color:#8e877f;font-size:12px}
+
+    @media(max-width:860px){
+      .nav-links{display:none}
+      .menu-btn{display:block}
+      .release,.about{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .socials{grid-template-columns:1fr 1fr}
+      .portrait{min-height:480px}
+      section{padding:72px 0}
+      .section-head{display:block}
+      .section-head p{margin-top:14px}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#home">SUNNY ELDR</a>
+      <nav class="nav-links">
+        <a href="#music">Music</a>
+        <a href="#videos">Videos</a>
+        <a href="#about">About</a>
+        <a href="#press">Press</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="menu-btn" id="menuBtn">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-image" aria-hidden="true"></div>
+      <div class="wrap hero-content">
+        <div class="eyebrow">Official Artist Website</div>
+        <h1>SUNNY<br>ELDR</h1>
+        <p class="tagline">Fire. North. Freedom.</p>
+        <div class="actions">
+          <a class="btn primary" href="#music">Listen Now</a>
+          <a class="btn" href="#videos">Watch</a>
+        </div>
+        <div class="platforms">
+          <a href="#" data-placeholder>Spotify</a>
+          <a href="#" data-placeholder>Apple Music</a>
+          <a href="#" data-placeholder>Amazon Music</a>
+          <a href="#" data-placeholder>YouTube Music</a>
+          <a href="#" data-placeholder>YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="music">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Latest Release</h2>
+          <p>Your current release goes here. We will replace this placeholder with the real cover, title, release date and official streaming links.</p>
+        </div>
+        <div class="release">
+          <div class="cover"><span>ARTWORK</span></div>
+          <div>
+            <div class="release-meta">Latest release · 2026</div>
+            <h3>Release Title</h3>
+            <p>Add the final release description here. Keep it short, cinematic and focused on the music.</p>
+            <div class="actions" style="margin-top:24px">
+              <a class="btn primary" href="#" data-placeholder>Spotify</a>
+              <a class="btn" href="#" data-placeholder>Apple Music</a>
+              <a class="btn" href="#" data-placeholder>Amazon Music</a>
+              <a class="btn" href="#" data-placeholder>YouTube Music</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="videos">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Watch</h2>
+          <p>Music videos, performance clips and official visual releases.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><div class="thumb"></div><div class="card-body"><h3>Featured Video</h3><p>YouTube link will be added here.</p></div></article>
+          <article class="card"><div class="thumb"></div><div class="card-body"><h3>Official Video</h3><p>Video placeholder.</p></div></article>
+          <article class="card"><div class="thumb"></div><div class="card-body"><h3>Performance</h3><p>Video placeholder.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap about">
+        <div class="portrait"></div>
+        <div>
+          <div class="identity">Nordic · Alternative · Cinematic</div>
+          <h2>About Sunny ELDR</h2>
+          <p>This is the placeholder for the official artist biography. We will replace it with a concise professional bio and add the final Sunny ELDR portrait.</p>
+          <p>The visual direction is intentionally modern, cinematic and Nordic rather than medieval or fantasy-based.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="press">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Press / EPK</h2>
+          <p>A dedicated section for press photos, artist biography, streaming statistics, latest release, videos and business contact.</p>
+        </div>
+        <a class="btn" href="#" data-placeholder>Download Press Kit</a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Follow Sunny</h2>
+          <p>All official platforms will be linked here.</p>
+        </div>
+        <div class="socials">
+          <a class="social" href="#" data-placeholder>Instagram</a>
+          <a class="social" href="#" data-placeholder>TikTok</a>
+          <a class="social" href="#" data-placeholder>Facebook</a>
+          <a class="social" href="#" data-placeholder>YouTube</a>
+        </div>
+        <p class="placeholder-note">The # links are placeholders only. We will add the real official URLs later.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>© <span id="year"></span> SUNNY ELDR</div>
+      <div class="small-links">
+        <a href="#" data-placeholder>Imprint</a>
+        <a href="#" data-placeholder>Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('[data-placeholder]').forEach(link => {
+      link.addEventListener('click', e => {
+        if (link.getAttribute('href') === '#') {
+          e.preventDefault();
+          alert('Placeholder link – we will add the official SUNNY ELDR URL later.');
+        }
+      });
+    });
+
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn.addEventListener('click', () => {
+      const target = prompt('Go to: music, videos, about, press or contact');
+      if (!target) return;
+      const el = document.getElementById(target.trim().toLowerCase());
+      if (el) el.scrollIntoView({ behavior:'smooth' });
+    });
+  </script>
+</body>
+</html>
