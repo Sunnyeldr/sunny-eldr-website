@@ -413,44 +413,44 @@ footer{border-top:1px solid var(--line);padding:35px 0;color:var(--mut);font-siz
     <div class="live-stats-grid">
       <div class="live-stat">
         <div class="live-stat-kicker">YouTube</div>
-        <div class="live-stat-value" id="ytSubscribers">—</div>
+        <div class="live-stat-value" id="ytSubscribers">5,869</div>
         <div class="live-stat-label">Subscribers</div>
-        <div class="live-stat-status"><span class="live-dot"></span>Automatically updated</div>
+        <div class="live-stat-status">Updated manually · 11 Sep 2026</div>
       </div>
 
       <div class="live-stat">
         <div class="live-stat-kicker">YouTube</div>
-        <div class="live-stat-value" id="ytViews">—</div>
+        <div class="live-stat-value" id="ytViews">452,822</div>
         <div class="live-stat-label">Channel Views</div>
-        <div class="live-stat-status">Live data via official API</div>
+        <div class="live-stat-status">Updated manually · 11 Sep 2026</div>
       </div>
 
       <div class="live-stat">
         <div class="live-stat-kicker">YouTube</div>
-        <div class="live-stat-value" id="ytVideos">—</div>
+        <div class="live-stat-value" id="ytVideos">89</div>
         <div class="live-stat-label">Videos</div>
-        <div class="live-stat-status" id="ytUpdated">Loading current stats…</div>
+        <div class="live-stat-status" id="ytUpdated">Updated manually · 11 Sep 2026</div>
       </div>
 
       <div class="live-stat">
         <div class="live-stat-kicker">TikTok</div>
-        <div class="live-stat-value" id="ttFollowers">—</div>
+        <div class="live-stat-value" id="ttFollowers">37,560</div>
         <div class="live-stat-label">Followers</div>
-        <div class="live-stat-status" id="ttFollowerStatus">Connection pending</div>
+        <div class="live-stat-status" id="ttFollowerStatus">Updated manually · 11 Sep 2026</div>
       </div>
 
       <div class="live-stat">
         <div class="live-stat-kicker">TikTok</div>
-        <div class="live-stat-value" id="ttLikes">—</div>
+        <div class="live-stat-value" id="ttLikes">116,080</div>
         <div class="live-stat-label">Likes</div>
-        <div class="live-stat-status">Updates automatically after connection</div>
+        <div class="live-stat-status">Updated manually · 11 Sep 2026</div>
       </div>
 
       <div class="live-stat">
         <div class="live-stat-kicker">TikTok</div>
-        <div class="live-stat-value" id="ttVideos">—</div>
+        <div class="live-stat-value" id="ttVideos">72</div>
         <div class="live-stat-label">Videos</div>
-        <div class="live-stat-status" id="ttUpdated">Waiting for TikTok authorization</div>
+        <div class="live-stat-status" id="ttUpdated">Updated manually · 11 Sep 2026</div>
       </div>
 
       <div class="live-stat">
@@ -745,25 +745,11 @@ footer{border-top:1px solid var(--line);padding:35px 0;color:var(--mut);font-siz
 
         document.getElementById("ttUpdated").textContent =
           "Live data via official TikTok API";
-      } else {
-        document.getElementById("ttFollowers").textContent = "Pending";
-        document.getElementById("ttLikes").textContent = "—";
-        document.getElementById("ttVideos").textContent = "—";
-        document.getElementById("ttFollowerStatus").textContent =
-          "TikTok authorization pending";
-        document.getElementById("ttUpdated").textContent =
-          "Will activate automatically after connection";
       }
+      // TikTok not yet connected: keep the manually-set fallback values in the HTML as-is.
     })
     .catch(function () {
-      document.getElementById("ytUpdated").textContent =
-        "Live stats temporarily unavailable";
-
-      document.getElementById("ttFollowers").textContent = "Pending";
-      document.getElementById("ttFollowerStatus").textContent =
-        "TikTok authorization pending";
-      document.getElementById("ttUpdated").textContent =
-        "Will activate automatically after connection";
+      // Stats worker unreachable: keep the manually-set fallback values in the HTML as-is.
     });
 })();
 </script>
