@@ -1,0 +1,57 @@
+(function(){
+  const endpoint = "https://sunny-social-stats.sash-kelch.workers.dev";
+  const grid = document.querySelector("#videos .video-grid");
+
+  if (!grid) return;
+
+  function escapeHtml(value){
+    return String(value ?? "")
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function videoCard(video, isMain){
+    const title = escapeHtml(video.title || "Sunny ELDR");
+    const url = escapeHtml(video.url || (video.id ? `https://www.youtube.com/watch?v=${video.id}` : "https://youtube.com/@sunny-eldr"));
+    const thumbnail = escapeHtml(video.thumbnail || (video.id ? `https://img.youtube.com/vi/${video.id}/hqdefault.jpg` : "sunny-hero.png"));
+    const cls = isMain ? "video-main" : "video-small";
+    const label = isMain ? "Latest Upload" : "Recent Upload";
+
+    return `
+      <a class="${cls}" href="${url}" target="_blank" rel="noopener noreferrer">
+        <img src="${thumbnail}" alt="${title} by Sunny ELDR" loading="lazy">
+        <div class="video-shade"></div>
+        <div class="play">▶</div>
+        <div class="video-info">
+          <span>${label}</span>
+          <strong>${title}</strong>
+        </div>
+      </a>`;
+  }
+
+  function render(videos){
+    if (!Array.isArray(videos) || videos.length === 0) return;
+
+    const first = videos[0];
+    const rest = videos.slice(1, 3);
+
+    grid.innerHTML = `
+      ${videoCard(first, true)}
+      <div class="video-side">
+        ${rest.map(video => videoCard(video, false)).join("")}
+      </div>`;
+  }
+
+  fetch(endpoint, { cache: "no-store" })
+    .then(response => {
+      if (!response.ok) throw new Error("YouTube live feed request failed");
+      return response.json();
+    })
+    .then(data => render(data.youtubeVideos))
+    .catch(() => {
+      // Keep the static fallback videos already present in index.html.
+    });
+})();
