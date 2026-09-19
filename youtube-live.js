@@ -65,7 +65,7 @@
     }
     .audience-premium .audience-cards{
       display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
+      grid-template-columns:repeat(4,minmax(0,1fr));
       gap:14px;
     }
     .audience-premium .audience-card{
@@ -146,7 +146,7 @@
     .audience-premium .audience-number{
       display:block;
       min-height:1em;
-      font-size:clamp(40px,5.3vw,70px);
+      font-size:clamp(36px,4.5vw,64px);
       line-height:.92;
       font-weight:850;
       letter-spacing:-.055em;
@@ -186,15 +186,18 @@
       transform:scaleX(1);
       opacity:.65;
     }
+    @media(max-width:1050px){
+      .audience-premium .audience-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
     @media(max-width:900px){
       .audience-premium .audience-premium-head{display:block}
       .audience-premium .audience-copy{text-align:left;margin-top:15px}
-      .audience-premium .audience-cards{grid-template-columns:1fr}
       .audience-premium .audience-card{min-height:165px}
       .audience-premium .audience-card-top{margin-bottom:28px}
     }
     @media(max-width:600px){
       .audience.audience-premium{padding:44px 0 50px}
+      .audience-premium .audience-cards{grid-template-columns:1fr}
       .audience-premium .audience-card{border-radius:18px}
     }
     @media(prefers-reduced-motion:reduce){
@@ -244,6 +247,15 @@
           <span class="audience-label">Followers</span>
           <span class="audience-line"></span>
         </article>
+        <article class="audience-card">
+          <div class="audience-card-top">
+            <span class="audience-platform">Facebook</span>
+            <span class="audience-status" id="audienceFacebookStatus">Current</span>
+          </div>
+          <strong class="audience-number" id="audienceFacebook">0</strong>
+          <span class="audience-label">Followers</span>
+          <span class="audience-line"></span>
+        </article>
       </div>
     </div>`;
 
@@ -281,14 +293,17 @@
   const youtubeEl = document.getElementById("audienceYouTube");
   const tiktokEl = document.getElementById("audienceTikTok");
   const instagramEl = document.getElementById("audienceInstagram");
+  const facebookEl = document.getElementById("audienceFacebook");
   const tiktokStatus = document.getElementById("audienceTikTokStatus");
 
-  const FALLBACK_TIKTOK = 37560;
-  const CURRENT_INSTAGRAM = 67300;
+  const FALLBACK_TIKTOK = 38600;
+  const CURRENT_INSTAGRAM = 69600;
+  const CURRENT_FACEBOOK = 49000;
 
   rollNumber(youtubeEl, 7490, 80);
   rollNumber(tiktokEl, FALLBACK_TIKTOK, 220);
   rollNumber(instagramEl, CURRENT_INSTAGRAM, 360);
+  rollNumber(facebookEl, CURRENT_FACEBOOK, 500);
 
   fetch(endpoint, { cache:"no-store" })
     .then(response => {
