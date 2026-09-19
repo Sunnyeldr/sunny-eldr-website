@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Sunny ELDR | Official Website</title>
+<meta name="description" content="Official website of Sunny ELDR — Nordic-inspired music, cinematic visuals, releases, press and official links.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://sunnyeldr.com/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sunny ELDR">
+<meta property="og:title" content="Sunny ELDR | Official Website">
+<meta property="og:description" content="Nordic fire. Modern form. Music, visuals and the world of Sunny ELDR.">
+<meta property="og:url" content="https://sunnyeldr.com/">
+<meta property="og:image" content="https://sunnyeldr.com/sunny-hero.png">
+<meta property="og:image:alt" content="Sunny ELDR official artist image">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sunny ELDR | Official Website">
+<meta name="twitter:description" content="Nordic fire. Modern form. Music, visuals and the world of Sunny ELDR.">
+<meta name="twitter:image" content="https://sunnyeldr.com/sunny-hero.png">
+
+<meta name="theme-color" content="#050505">
+
+<!-- Google Analytics: loaded only after explicit consent -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+
+gtag('consent', 'default', {
+  analytics_storage: 'denied',
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  wait_for_update: 500
+});
+
+const GA_MEASUREMENT_ID = 'G-35RYZFM7P5';
+
+function loadGoogleAnalytics() {
+  if (window.__sunnyGaLoaded) return;
+  window.__sunnyGaLoaded = true;
+  const gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+  document.head.appendChild(gaScript);
+  gtag('js', new Date());
+  gtag('config', GA_MEASUREMENT_ID);
+}
+
+if (localStorage.getItem('sunnyAnalyticsConsent') === 'accepted') {
+  gtag('consent', 'update', { analytics_storage: 'granted' });
+  loadGoogleAnalytics();
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"MusicGroup",
+  "@id":"https://sunnyeldr.com/#artist",
+  "name":"Sunny ELDR",
+  "url":"https://sunnyeldr.com/",
+  "image":"https://sunnyeldr.com/sunny-about.png",
+  "description":"Sunny ELDR is a Nordic-inspired music artist with a cinematic modern visual identity.",
+  "genre":["Nordic","Alternative","Cinematic"],
+  "email":"contact@sunnyeldr.com",
+  "sameAs":[
+    "https://www.instagram.com/sunnyeldr",
+    "https://www.tiktok.com/@sunny.eldr",
+    "https://www.facebook.com/profile.php?id=61560372761235",
+    "https://youtube.com/@sunny-eldr"
+  ]
+}
+</script>
+
+<style>
+:root{
+  --bg:#050505;
+  --bg2:#0a0a0a;
+  --fg:#f3eee7;
+  --mut:#a19b94;
+  --line:rgba(255,255,255,.14);
+  --line-soft:rgba(255,255,255,.08);
+  --acc:#d7b28a;
+  --max:1280px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 15% 12%,rgba(215,178,138,.05),transparent 26%),
+    var(--bg);
+  color:var(--fg);
+  font:16px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  overflow-x:hidden;
+}
+body::selection{background:var(--fg);color:#080808}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.w{width:min(calc(100% - 46px),var(--max));margin:auto}
+.kicker{
+  color:var(--acc);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.24em;
+  text-transform:uppercase;
+}
+.display{
+  font-size:clamp(50px,8vw,118px);
+  line-height:.82;
+  letter-spacing:-.065em;
+  margin:14px 0 28px;
+  text-transform:uppercase;
+}
+.copy{color:var(--mut);max-width:650px}
+.btn-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.btn{
+  min-height:47px;
+  padding:0 19px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  background:rgba(7,7,7,.45);
+  backdrop-filter:blur(15px);
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  transition:.25s ease;
+}
+.btn:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.36)}
+.btn.primary{background:var(--fg);color:#090909;border-color:var(--fg)}
+.text-link{
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:#d7cec4;
+  padding:12px 0;
+}
+.text-link:hover{color:#fff}
+
+/* NAV */
+.site-nav{
+  position:fixed;
+  z-index:100;
+  top:0;left:0;right:0;
+  transition:background .25s ease,border-color .25s ease;
+}
+.site-nav.scrolled{
+  background:rgba(5,5,5,.82);
+  border-bottom:1px solid var(--line-soft);
+  backdrop-filter:blur(20px);
+}
+.nav-inner{
+  height:82px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:30px;
+}
+.brand{
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.23em;
+  white-space:nowrap;
+}
+.nav-links{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+}
+.nav-links a{
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:#c8c1b9;
+  transition:.2s;
+}
+.nav-links a:hover{color:#fff}
+.nav-right{display:flex;align-items:center;gap:12px}
+.shop-nav{
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:9px 13px;
+  color:#fff !important;
+}
+.lang-switch{
+  display:flex;
+  align-items:center;
+  gap:3px;
+  padding:3px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#08080899;
+}
+.lang-switch button{
+  border:0;background:transparent;color:var(--mut);
+  width:35px;height:29px;border-radius:999px;
+  cursor:pointer;font-size:9px;font-weight:850;letter-spacing:.08em;
+}
+.lang-switch button.active{background:var(--fg);color:#080808}
+
+/* HERO */
+.hero{
+  min-height:100svh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  isolation:isolate;
+  background:#050505;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url("https://sunnyeldr.com/sunny-hero.png") 58% 34%/cover no-repeat;
+  transform:scale(1.02);
+  animation:heroDrift 16s ease-in-out infinite alternate;
+  z-index:-3;
+}
+@keyframes heroDrift{
+  from{transform:scale(1.02)}
+  to{transform:scale(1.065)}
+}
+.hero::before{
+  content:"";
+  position:absolute;inset:0;z-index:-2;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.78) 0%,rgba(0,0,0,.28) 45%,rgba(0,0,0,.08) 68%,rgba(0,0,0,.38) 100%),
+    linear-gradient(0deg,#050505 0%,transparent 35%,rgba(0,0,0,.05) 70%);
+}
+.hero::after{
+  content:"";
+  position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(to top,rgba(5,5,5,.72),transparent 35%);
+}
+.hero-content{
+  padding:150px 0 58px;
+  width:100%;
+}
+.hero-label{
+  display:flex;align-items:center;gap:11px;
+  margin-bottom:18px;
+  font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+  color:#d4ccc2;
+}
+.hero-label::before{content:"";width:44px;height:1px;background:var(--acc)}
+.hero-title{
+  font-size:clamp(82px,14.5vw,210px);
+  line-height:.72;
+  margin:0 0 30px;
+  letter-spacing:-.085em;
+  text-transform:uppercase;
+  max-width:1000px;
+  font-weight:900;
+}
+.hero-title span{display:block}
+.hero-title span:last-child{
+  margin-left:clamp(28px,8vw,130px);
+  -webkit-text-stroke:1px rgba(255,255,255,.72);
+  color:transparent;
+}
+.hero-bottom{
+  display:grid;
+  grid-template-columns:minmax(0,560px) 1fr;
+  align-items:end;
+  gap:40px;
+}
+.hero-copy{
+  margin:0 0 25px;
+  color:#cec6bd;
+  font-size:clamp(16px,2vw,21px);
+  max-width:540px;
+}
+.hero-side{
+  justify-self:end;
+  text-align:right;
+  color:#a49d95;
+  font-size:11px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.hero-side strong{display:block;color:#fff;font-size:13px;margin-bottom:5px}
+
+/* COMPACT AUDIENCE BAR */
+.audience{
+  padding:0;
+  border-top:1px solid var(--line-soft);
+  border-bottom:1px solid var(--line-soft);
+  background:#070707;
+}
+.audience-grid{
+  min-height:94px;
+  display:grid;
+  grid-template-columns:1.4fr repeat(3,1fr);
+  align-items:center;
+}
+.audience-lead{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:#c6beb5;
+}
+.audience-stat{
+  border-left:1px solid var(--line-soft);
+  padding-left:30px;
+}
+.audience-stat strong{
+  display:block;
+  font-size:clamp(24px,3vw,40px);
+  line-height:1;
+  letter-spacing:-.04em;
+}
+.audience-stat span{
+  display:block;
+  margin-top:8px;
+  color:#858079;
+  font-size:9px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+}
+
+/* CURRENT ERA */
+.era{
+  position:relative;
+  padding:140px 0;
+  overflow:hidden;
+}
+.era::before{
+  content:"ELDRHEIM";
+  position:absolute;
+  right:-2vw;top:50px;
+  font-size:clamp(100px,22vw,340px);
+  line-height:.8;
+  font-weight:900;
+  letter-spacing:-.08em;
+  color:rgba(255,255,255,.018);
+  pointer-events:none;
+}
+.era-grid{
+  display:grid;
+  grid-template-columns:minmax(330px,.9fr) minmax(0,1.1fr);
+  gap:clamp(45px,8vw,120px);
+  align-items:center;
+}
+.era-art-wrap{
+  position:relative;
+  padding:24px 24px 0 0;
+}
+.era-art{
+  width:100%;
+  display:block;
+  aspect-ratio:1;
+  object-fit:cover;
+  box-shadow:0 50px 120px rgba(0,0,0,.55);
+}
+.era-art-wrap::before{
+  content:"";
+  position:absolute;
+  top:0;right:0;
+  width:38%;height:38%;
+  border-top:1px solid rgba(255,255,255,.32);
+  border-right:1px solid rgba(255,255,255,.32);
+}
+.era-number{
+  position:absolute;
+  left:-17px;bottom:27px;
+  writing-mode:vertical-rl;
+  transform:rotate(180deg);
+  font-size:9px;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#776f68;
+}
+.era h2{
+  margin:8px 0 18px;
+  font-size:clamp(54px,8vw,110px);
+  line-height:.82;
+  letter-spacing:-.065em;
+  text-transform:uppercase;
+}
+.era-line{
+  width:68px;height:1px;background:var(--acc);margin:24px 0;
+}
+.era-meta{
+  display:flex;gap:20px;flex-wrap:wrap;
+  margin:25px 0 0;
+  color:#8f8880;
+  font-size:10px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+.player{
+  margin:28px 0 18px;
+  border-radius:12px;
+  overflow:hidden;
+  background:#111;
+}
+.player iframe{display:block;width:100%;border:0}
+
+/* WATCH */
+.watch{
+  padding:140px 0;
+  border-top:1px solid var(--line-soft);
+}
+.watch-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:30px;
+  margin-bottom:42px;
+}
+.watch-title{
+  font-size:clamp(64px,10vw,150px);
+  line-height:.78;
+  margin:10px 0 0;
+  letter-spacing:-.07em;
+  text-transform:uppercase;
+}
+.watch-note{color:var(--mut);max-width:330px;font-size:13px}
+.video-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1.65fr) minmax(280px,.55fr);
+  gap:16px;
+}
+.video-main,.video-small{
+  position:relative;
+  display:block;
+  overflow:hidden;
+  background:#0a0a0a;
+}
+.video-main{min-height:620px}
+.video-side{display:grid;gap:16px}
+.video-small{min-height:302px}
+.video-main img,.video-small img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;transition:transform .6s ease,filter .4s ease;
+}
+.video-main:hover img,.video-small:hover img{transform:scale(1.035);filter:brightness(.78)}
+.video-shade{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.9),transparent 58%);
+}
+.video-info{
+  position:absolute;left:24px;right:24px;bottom:24px;
+}
+.video-info strong{
+  display:block;font-size:clamp(22px,3vw,42px);
+  line-height:1;letter-spacing:-.04em;
+}
+.video-info span{
+  display:block;color:#bbb3aa;font-size:10px;
+  letter-spacing:.15em;text-transform:uppercase;margin-bottom:7px;
+}
+.play{
+  position:absolute;right:22px;top:22px;
+  width:58px;height:58px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.48);
+  display:grid;place-items:center;
+  background:rgba(0,0,0,.28);backdrop-filter:blur(12px);
+  font-size:15px;padding-left:3px;
+}
+
+/* REMAINING PAGE */
+.section{
+  padding:120px 0;
+  border-top:1px solid var(--line-soft);
+}
+.section-title{
+  font-size:clamp(54px,8vw,110px);
+  line-height:.84;
+  letter-spacing:-.065em;
+  text-transform:uppercase;
+  margin:12px 0 42px;
+}
+.discography-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px;
+}
+.album-card{display:block}
+.album-art{aspect-ratio:1;overflow:hidden;background:#0a0a0a}
+.album-art img{width:100%;height:100%;object-fit:cover;transition:.45s}
+.album-card:hover img{transform:scale(1.025);filter:brightness(.82)}
+.album-info{padding:16px 2px}
+.album-info small{
+  color:var(--acc);font-size:9px;letter-spacing:.16em;text-transform:uppercase
+}
+.album-info h3{margin:5px 0 0;font-size:23px;letter-spacing:-.03em}
+
+.about-grid{
+  display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(35px,7vw,100px);align-items:center;
+}
+.about-photo{
+  min-height:760px;background:url("https://sunnyeldr.com/sunny-about.png") center 16%/cover no-repeat;
+}
+.about-quote{
+  font-size:clamp(50px,7vw,96px);
+  line-height:.87;letter-spacing:-.06em;text-transform:uppercase;margin:12px 0 30px;
+}
+.about-copy{color:var(--mut);font-size:17px;max-width:560px}
+
+.press-box{
+  padding:clamp(28px,5vw,70px);
+  background:
+    radial-gradient(circle at 85% 15%,rgba(215,178,138,.08),transparent 25%),
+    #090909;
+  display:grid;grid-template-columns:1.2fr .8fr;gap:50px;align-items:center;
+}
+.press-box h3{
+  font-size:clamp(45px,7vw,88px);
+  line-height:.87;letter-spacing:-.06em;text-transform:uppercase;margin:10px 0 22px;
+}
+.press-links{display:grid;gap:1px;background:var(--line-soft)}
+.press-links a{
+  background:#090909;padding:22px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+  text-transform:uppercase;font-size:10px;letter-spacing:.15em;
+}
+.press-links a:hover{background:#0e0e0e}
+
+.social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-soft)}
+.social-grid a{
+  background:#070707;
+  min-height:110px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:10px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;
+}
+.social-grid a:hover{background:#101010}
+
+footer{
+  padding:42px 0;
+  border-top:1px solid var(--line-soft);
+  color:#77716b;font-size:12px;
+}
+.footer-inner{
+  display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.footer-inner a:hover{color:#fff}
+
+/* CONSENT */
+.analytics-consent{
+  position:fixed;left:18px;right:18px;bottom:18px;z-index:99999;display:none
+}
+.analytics-consent.is-visible{display:block}
+.analytics-consent-card{
+  width:min(100%,980px);margin:auto;padding:20px;
+  border:1px solid rgba(255,255,255,.18);border-radius:16px;
+  background:rgba(10,10,10,.96);box-shadow:0 24px 80px rgba(0,0,0,.62);
+  backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;gap:24px
+}
+.analytics-consent-title{font-weight:850;margin-bottom:5px}
+.analytics-consent-copy{max-width:650px}
+.analytics-consent-copy p{margin:0;color:var(--mut);font-size:13px}
+.analytics-consent-copy a{text-decoration:underline}
+.analytics-consent-actions{display:flex;gap:9px;flex-shrink:0}
+.analytics-consent-actions button{
+  min-height:42px;padding:0 16px;border-radius:999px;
+  border:1px solid rgba(255,255,255,.25);cursor:pointer;
+  font-size:10px;font-weight:850;letter-spacing:.09em;text-transform:uppercase
+}
+#analyticsReject{background:transparent;color:var(--fg)}
+#analyticsAccept{background:var(--fg);color:#080808;border-color:var(--fg)}
+.privacy-settings-btn{border:0;background:none;color:inherit;padding:0;cursor:pointer;font:inherit}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:980px){
+  .nav-links{display:none}
+  .hero-bottom,.era-grid,.about-grid,.press-box{grid-template-columns:1fr}
+  .hero-side{justify-self:start;text-align:left;margin-top:15px}
+  .audience-grid{grid-template-columns:1fr 1fr}
+  .audience-lead{grid-column:1/-1;padding:22px 0;border-bottom:1px solid var(--line-soft)}
+  .audience-stat{padding:20px 0;border-left:0}
+  .audience-stat:nth-child(3){border-left:1px solid var(--line-soft);padding-left:24px}
+  .audience-stat:last-child{grid-column:1/-1;border-top:1px solid var(--line-soft)}
+  .video-grid{grid-template-columns:1fr}
+  .video-main{min-height:470px}
+  .video-side{grid-template-columns:1fr 1fr}
+  .video-small{min-height:250px}
+}
+@media(max-width:700px){
+  .w{width:min(calc(100% - 28px),var(--max))}
+  .nav-inner{height:70px;grid-template-columns:1fr auto}
+  .brand{font-size:11px}
+  .shop-nav{display:none}
+  .hero-bg{background-position:62% 28%}
+  .hero-content{padding:120px 0 34px}
+  .hero-title{font-size:clamp(68px,25vw,120px)}
+  .hero-title span:last-child{margin-left:0}
+  .hero-copy{font-size:16px}
+  .hero-side{display:none}
+  .era,.watch,.section{padding:82px 0}
+  .era-grid{gap:42px}
+  .era-art-wrap{padding:13px 13px 0 0}
+  .era-number{display:none}
+  .watch-head{display:block}
+  .watch-note{margin-top:20px}
+  .video-main{min-height:320px}
+  .video-side{grid-template-columns:1fr}
+  .video-small{min-height:250px}
+  .discography-grid{grid-template-columns:1fr}
+  .about-photo{min-height:560px}
+  .social-grid{grid-template-columns:1fr 1fr}
+  .analytics-consent-card{flex-direction:column;align-items:stretch}
+  .analytics-consent-actions button{flex:1}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="site-nav" id="siteNav">
+  <div class="w nav-inner">
+    <a class="brand" href="#home">SUNNY ELDR</a>
+
+    <div class="nav-links">
+      <a href="#music">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="#discography">Discography</a>
+      <a href="#about">About</a>
+      <a href="#press">Press</a>
+      <a class="shop-nav" href="https://sunny-eldr-shop.fourthwall.com" target="_blank" rel="noopener noreferrer">Shop ↗</a>
+    </div>
+
+    <div class="nav-right">
+      <div class="lang-switch" aria-label="Language">
+        <button type="button" id="langDE">DE</button>
+        <button type="button" id="langEN">EN</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="w hero-content">
+    <div class="hero-label">Nordic fire · modern form</div>
+
+    <h1 class="hero-title">
+      <span>Sunny</span>
+      <span>ELDR</span>
+    </h1>
+
+    <div class="hero-bottom">
+      <div>
+        <p class="hero-copy">Dark vocals, cinematic atmosphere and a modern Nordic visual world.</p>
+        <div class="btn-row">
+          <a class="btn primary" href="#music">Listen Now</a>
+          <a class="btn" href="#videos">Watch</a>
+          <a class="text-link" href="https://sunny-eldr-shop.fourthwall.com" target="_blank" rel="noopener noreferrer">Official Store ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <strong>Independent Artist</strong>
+        Music · Visuals · ELDR ÆSTHETIC
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="audience" aria-label="Audience">
+  <div class="w audience-grid">
+    <div class="audience-lead">The world is growing.</div>
+    <div class="audience-stat">
+      <strong id="ytSubscribers">5K+</strong>
+      <span>YouTube</span>
+    </div>
+    <div class="audience-stat">
+      <strong id="ttFollowers">37K+</strong>
+      <span>TikTok</span>
+    </div>
+    <div class="audience-stat">
+      <strong>67K+</strong>
+      <span>Instagram</span>
+    </div>
+  </div>
+</section>
+
+<section class="era" id="music">
+  <div class="w era-grid">
+    <div class="era-art-wrap reveal">
+      <img class="era-art" src="https://sunnyeldr.com/eldrheim-cover.png" alt="ELDRHEIM by Sunny ELDR album cover">
+      <div class="era-number">Sunny ELDR · 2026</div>
+    </div>
+
+    <div class="reveal">
+      <div class="kicker">Current Era</div>
+      <h2>ELDRHEIM</h2>
+      <div class="era-line"></div>
+      <p class="copy">A dark Nordic world built around raw vocals, cinematic atmosphere and modern performance energy.</p>
+
+      <div class="era-meta">
+        <span>Album · 2026</span>
+        <span>Featured: Ravenfire</span>
+      </div>
+
+      <div class="player">
+        <iframe
+          src="https://open.spotify.com/embed/track/4xzgFPEFPtZiveLQa5oJop?utm_source=generator"
+          height="152"
+          loading="lazy"
+          title="Ravenfire by Sunny ELDR on Spotify"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+        </iframe>
+      </div>
+
+      <div class="btn-row">
+        <a class="btn primary" target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/track/4xzgFPEFPtZiveLQa5oJop">Spotify</a>
+        <a class="btn" target="_blank" rel="noopener noreferrer" href="https://music.apple.com/de/album/ravenfire/6796012458?i=6796012470">Apple Music</a>
+        <a class="btn" target="_blank" rel="noopener noreferrer" href="https://music.amazon.de/albums/B0HC4CZDLV?do=play&amp;trackAsin=B0HC4B7TK7">Amazon Music</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="watch" id="videos">
+  <div class="w">
+    <div class="watch-head reveal">
+      <div>
+        <div class="kicker">Official Visuals</div>
+        <h2 class="watch-title">Watch</h2>
+      </div>
+      <p class="watch-note">Performance, atmosphere and cinematic storytelling from the visual world of Sunny ELDR.</p>
+    </div>
+
+    <div class="video-grid reveal">
+      <a class="video-main" href="https://www.youtube.com/watch?v=FT0faOloSmI" target="_blank" rel="noopener noreferrer">
+        <img src="https://img.youtube.com/vi/FT0faOloSmI/maxresdefault.jpg"
+             onerror="this.src='https://img.youtube.com/vi/FT0faOloSmI/hqdefault.jpg'"
+             alt="Was Always There official story video by Sunny ELDR">
+        <div class="video-shade"></div>
+        <div class="play">▶</div>
+        <div class="video-info">
+          <span>Featured Film</span>
+          <strong>Was Always There</strong>
+        </div>
+      </a>
+
+      <div class="video-side">
+        <a class="video-small" href="https://www.youtube.com/shorts/7f_4RgzWOIg" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.youtube.com/vi/7f_4RgzWOIg/hqdefault.jpg" alt="Ravenfire live performance by Sunny ELDR">
+          <div class="video-shade"></div>
+          <div class="play">▶</div>
+          <div class="video-info">
+            <span>Live Performance</span>
+            <strong>Ravenfire</strong>
+          </div>
+        </a>
+
+        <a class="video-small" href="https://www.youtube.com/watch?v=lHdWxsHIPLM" target="_blank" rel="noopener noreferrer">
+          <img src="https://img.youtube.com/vi/lHdWxsHIPLM/maxresdefault.jpg"
+               onerror="this.src='https://img.youtube.com/vi/lHdWxsHIPLM/hqdefault.jpg'"
+               alt="Wolf Within music video by Sunny ELDR">
+          <div class="video-shade"></div>
+          <div class="play">▶</div>
+          <div class="video-info">
+            <span>Cinematic Video</span>
+            <strong>Wolf Within</strong>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="discography">
+  <div class="w">
+    <div class="kicker">Selected Releases</div>
+    <h2 class="section-title">Discography</h2>
+
+    <div class="discography-grid">
+      <article class="album-card reveal">
+        <div class="album-art"><img src="https://sunnyeldr.com/eldrheim-cover.png" alt="ELDRHEIM album cover"></div>
+        <div class="album-info"><small>Album · 2026</small><h3>ELDRHEIM</h3></div>
+      </article>
+
+      <article class="album-card reveal">
+        <div class="album-art"><img src="https://sunnyeldr.com/hjarta-ur-eldi-cover.png" alt="HJARTA ÚR ELDI album cover"></div>
+        <div class="album-info"><small>Album · 2026</small><h3>HJARTA ÚR ELDI</h3></div>
+      </article>
+
+      <article class="album-card reveal">
+        <div class="album-art"><img src="https://sunnyeldr.com/eptir-the-flood-cover.png" alt="EPTIR THE FLOOD album cover"></div>
+        <div class="album-info"><small>Album · 2026</small><h3>EPTIR THE FLOOD</h3></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="w about-grid">
+    <div class="about-photo reveal" aria-label="Sunny ELDR portrait"></div>
+    <div class="reveal">
+      <div class="kicker">The World of Sunny ELDR</div>
+      <h2 class="about-quote">A voice from the north.<br>Built for now.</h2>
+      <p class="about-copy">Sunny ELDR combines a dark modern visual identity, powerful female vocals and cinematic Nordic atmosphere. The project lives between music, performance and a constantly evolving visual world.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="press">
+  <div class="w">
+    <div class="press-box reveal">
+      <div>
+        <div class="kicker">Press · Media · Industry</div>
+        <h3>Press / EPK</h3>
+        <p class="copy">Official biography, press images, artist links and business contact for media, playlists, collaborations and licensing.</p>
+      </div>
+
+      <div class="press-links">
+        <a href="https://sunnyeldr.com/sunny-about.png" download><span>Press Portrait</span><span>↓</span></a>
+        <a href="https://sunnyeldr.com/sunny-hero.png" download><span>Hero Image</span><span>↓</span></a>
+        <a href="https://open.spotify.com/artist/26RwT7kIoTnT8oT65MGS2P" target="_blank" rel="noopener noreferrer"><span>Spotify Artist</span><span>↗</span></a>
+        <a id="contact" href="mailto:contact@sunnyeldr.com"><span>Business Contact</span><span>↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="follow">
+  <div class="w">
+    <div class="kicker">Official Channels</div>
+    <h2 class="section-title">Follow the North</h2>
+    <div class="social-grid">
+      <a href="https://www.instagram.com/sunnyeldr" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@sunny.eldr" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.facebook.com/profile.php?id=61560372761235" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a href="https://youtube.com/@sunny-eldr" target="_blank" rel="noopener noreferrer">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="w footer-inner">
+    <span>© <span id="year"></span> SUNNY ELDR</span>
+    <span>
+      <a href="mailto:contact@sunnyeldr.com">Contact</a> ·
+      <a href="https://sunny-eldr-shop.fourthwall.com" target="_blank" rel="noopener noreferrer">Shop</a> ·
+      <a href="https://sunnyeldr.com/terms.html">Terms</a> ·
+      <a href="https://sunnyeldr.com/privacy.html">Privacy</a> ·
+      <button class="privacy-settings-btn" id="openPrivacySettings" type="button">Privacy settings</button>
+    </span>
+  </div>
+</footer>
+
+<div class="analytics-consent" id="analyticsConsent" role="dialog" aria-modal="true" aria-labelledby="analyticsConsentTitle">
+  <div class="analytics-consent-card">
+    <div class="analytics-consent-copy">
+      <div class="analytics-consent-title" id="analyticsConsentTitle">Privacy settings</div>
+      <p>We use Google Analytics to understand how visitors use sunnyeldr.com. Analytics is only loaded after you accept it. <a href="https://sunnyeldr.com/privacy.html">Privacy Policy</a></p>
+    </div>
+    <div class="analytics-consent-actions">
+      <button id="analyticsReject" type="button">Reject</button>
+      <button id="analyticsAccept" type="button">Accept analytics</button>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+const nav = document.getElementById('siteNav');
+function updateNav(){ nav.classList.toggle('scrolled', window.scrollY > 18); }
+updateNav();
+window.addEventListener('scroll', updateNav, {passive:true});
+
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach((entry)=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('in');
+      io.unobserve(entry.target);
+    }
+  });
+},{threshold:.12});
+reveals.forEach(el=>io.observe(el));
+</script>
+
+<script>
+(function(){
+  const STORAGE_KEY='sunnyAnalyticsConsent';
+  const banner=document.getElementById('analyticsConsent');
+  const acceptButton=document.getElementById('analyticsAccept');
+  const rejectButton=document.getElementById('analyticsReject');
+  const settingsButton=document.getElementById('openPrivacySettings');
+
+  function showBanner(){banner.classList.add('is-visible')}
+  function hideBanner(){banner.classList.remove('is-visible')}
+
+  function acceptAnalytics(){
+    localStorage.setItem(STORAGE_KEY,'accepted');
+    gtag('consent','update',{analytics_storage:'granted'});
+    loadGoogleAnalytics();
+    hideBanner();
+  }
+
+  function rejectAnalytics(){
+    localStorage.setItem(STORAGE_KEY,'rejected');
+    gtag('consent','update',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      ad_user_data:'denied',
+      ad_personalization:'denied'
+    });
+    hideBanner();
+  }
+
+  if(!localStorage.getItem(STORAGE_KEY)) showBanner();
+  acceptButton.addEventListener('click',acceptAnalytics);
+  rejectButton.addEventListener('click',rejectAnalytics);
+  settingsButton.addEventListener('click',showBanner);
+})();
+</script>
+
+<script>
+(function(){
+  const endpoint="https://sunny-social-stats.sash-kelch.workers.dev";
+
+  function compact(value){
+    const n=Number(value);
+    if(!Number.isFinite(n)) return "—";
+    if(n>=1000000) return (n/1000000).toFixed(1).replace(/\.0$/,'')+"M";
+    if(n>=1000) return (n/1000).toFixed(n>=100000?0:1).replace(/\.0$/,'')+"K";
+    return n.toLocaleString("en-US");
+  }
+
+  fetch(endpoint,{cache:"no-store"})
+    .then(r=>{if(!r.ok) throw new Error("stats"); return r.json()})
+    .then(data=>{
+      if(data.youtube && document.getElementById('ytSubscribers')){
+        document.getElementById('ytSubscribers').textContent=compact(data.youtube.subscribers);
+      }
+      if(data.tiktok && document.getElementById('ttFollowers')){
+        document.getElementById('ttFollowers').textContent=compact(data.tiktok.followers);
+      }
+    })
+    .catch(()=>{});
+})();
+</script>
+
+<script>
+(function(){
+  function analyticsAllowed(){
+    return localStorage.getItem('sunnyAnalyticsConsent')==='accepted' &&
+           window.__sunnyGaLoaded===true &&
+           typeof window.gtag==='function';
+  }
+
+  function detectTrackedEvent(link){
+    const href=(link.getAttribute('href')||'').toLowerCase();
+    if(href.includes('open.spotify.com')) return {name:'spotify_click',platform:'spotify'};
+    if(href.includes('youtube.com')||href.includes('youtu.be')) return {name:'youtube_click',platform:'youtube'};
+    if(href.includes('instagram.com')) return {name:'instagram_click',platform:'instagram'};
+    if(href.includes('tiktok.com')) return {name:'tiktok_click',platform:'tiktok'};
+    if(href.includes('facebook.com')) return {name:'facebook_click',platform:'facebook'};
+    if(href.includes('music.apple.com')) return {name:'apple_music_click',platform:'apple_music'};
+    if(href.includes('music.amazon.')||href.includes('amazon.com/music')) return {name:'amazon_music_click',platform:'amazon_music'};
+    if(href.includes('fourthwall.com')||href.includes('shop.sunnyeldr.com')) return {name:'shop_merch_click',platform:'shop'};
+    return null;
+  }
+
+  document.addEventListener('click',function(event){
+    const link=event.target.closest('a[href]');
+    if(!link||!analyticsAllowed()) return;
+    const tracked=detectTrackedEvent(link);
+    if(!tracked) return;
+
+    gtag('event',tracked.name,{
+      platform:tracked.platform,
+      link_url:link.href,
+      link_text:(link.textContent||'').trim().slice(0,100),
+      page_location:window.location.href
+    });
+  });
+})();
+</script>
+
+<script>
+(function(){
+  const STORAGE_KEY='sunnySiteLanguage';
+
+  const translations=new Map([
+    ['Music','Musik'],
+    ['Videos','Videos'],
+    ['Discography','Diskografie'],
+    ['About','Über Sunny'],
+    ['Press','Presse'],
+    ['Shop ↗','Shop ↗'],
+    ['Nordic fire · modern form','Nordisches Feuer · moderne Form'],
+    ['Dark vocals, cinematic atmosphere and a modern Nordic visual world.','Dunkle Vocals, cineastische Atmosphäre und eine moderne nordische Bildwelt.'],
+    ['Listen Now','Jetzt anhören'],
+    ['Watch','Ansehen'],
+    ['Official Store ↗','Offizieller Shop ↗'],
+    ['Independent Artist','Independent Artist'],
+    ['Music · Visuals · ELDR ÆSTHETIC','Musik · Visuals · ELDR ÆSTHETIC'],
+    ['The world is growing.','Die Welt wächst.'],
+    ['Current Era','Aktuelle Ära'],
+    ['A dark Nordic world built around raw vocals, cinematic atmosphere and modern performance energy.','Eine dunkle nordische Welt aus rohen Vocals, cineastischer Atmosphäre und moderner Performance-Energie.'],
+    ['Album · 2026','Album · 2026'],
+    ['Featured: Ravenfire','Featured: Ravenfire'],
+    ['Official Visuals','Offizielle Visuals'],
+    ['Performance, atmosphere and cinematic storytelling from the visual world of Sunny ELDR.','Performance, Atmosphäre und cineastisches Storytelling aus der visuellen Welt von Sunny ELDR.'],
+    ['Featured Film','Featured Film'],
+    ['Live Performance','Live-Performance'],
+    ['Cinematic Video','Cinematic Video'],
+    ['Selected Releases','Ausgewählte Releases'],
+    ['The World of Sunny ELDR','Die Welt von Sunny ELDR'],
+    ['A voice from the north.','Eine Stimme aus dem Norden.'],
+    ['Built for now.','Für das Jetzt gemacht.'],
+    ['A voice from the north.\nBuilt for now.','Eine Stimme aus dem Norden.\nFür das Jetzt gemacht.'],
+    ['Sunny ELDR combines a dark modern visual identity, powerful female vocals and cinematic Nordic atmosphere. The project lives between music, performance and a constantly evolving visual world.','Sunny ELDR verbindet eine dunkle moderne Bildsprache, kraftvolle weibliche Vocals und cineastische nordische Atmosphäre. Das Projekt lebt zwischen Musik, Performance und einer ständig wachsenden visuellen Welt.'],
+    ['Press · Media · Industry','Presse · Medien · Branche'],
+    ['Press / EPK','Presse / EPK'],
+    ['Official biography, press images, artist links and business contact for media, playlists, collaborations and licensing.','Offizielle Biografie, Pressebilder, Künstlerlinks und Business-Kontakt für Medien, Playlists, Kooperationen und Licensing.'],
+    ['Press Portrait','Presseporträt'],
+    ['Hero Image','Hero-Bild'],
+    ['Business Contact','Business-Kontakt'],
+    ['Official Channels','Offizielle Kanäle'],
+    ['Follow the North','Folge dem Norden'],
+    ['Privacy settings','Datenschutzeinstellungen'],
+    ['Privacy Policy','Datenschutzerklärung'],
+    ['Reject','Ablehnen'],
+    ['Accept analytics','Analytics akzeptieren']
+  ]);
+
+  const originalText=new WeakMap();
+
+  function translateTextNodes(root,lang){
+    const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+    const nodes=[]; let node;
+    while((node=walker.nextNode())) nodes.push(node);
+
+    nodes.forEach(textNode=>{
+      const parent=textNode.parentElement;
+      if(!parent||['SCRIPT','STYLE','NOSCRIPT'].includes(parent.tagName)) return;
+      if(!originalText.has(textNode)) originalText.set(textNode,textNode.nodeValue);
+      const source=originalText.get(textNode);
+
+      if(lang==='en'){
+        textNode.nodeValue=source;
+        return;
+      }
+
+      let value=source;
+      const trimmed=source.trim();
+      if(translations.has(trimmed)){
+        value=source.replace(trimmed,translations.get(trimmed));
+      }else{
+        translations.forEach((translated,english)=>{
+          if(value.includes(english)) value=value.split(english).join(translated);
+        });
+      }
+      textNode.nodeValue=value;
+    });
+  }
+
+  function setLanguage(lang){
+    localStorage.setItem(STORAGE_KEY,lang);
+    document.documentElement.lang=lang==='de'?'de':'en';
+    translateTextNodes(document.body,lang);
+    document.getElementById('langDE').classList.toggle('active',lang==='de');
+    document.getElementById('langEN').classList.toggle('active',lang==='en');
+  }
+
+  document.getElementById('langDE').addEventListener('click',()=>setLanguage('de'));
+  document.getElementById('langEN').addEventListener('click',()=>setLanguage('en'));
+  setLanguage(localStorage.getItem(STORAGE_KEY)==='de'?'de':'en');
+})();
+</script>
+
+</body>
+</html>
