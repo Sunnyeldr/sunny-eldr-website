@@ -90,7 +90,7 @@ reveals.forEach(el=>io.observe(el));
     if(href.includes('facebook.com')) return {name:'facebook_click',platform:'facebook'};
     if(href.includes('music.apple.com')) return {name:'apple_music_click',platform:'apple_music'};
     if(href.includes('music.amazon.')||href.includes('amazon.com/music')) return {name:'amazon_music_click',platform:'amazon_music'};
-    if(href.includes('fourthwall.com')||href.includes('shop.sunnyeldr.com')) return {name:'shop_merch_click',platform:'shop'};
+    if(href.includes('merch.html')||href.includes('myshopify.com')||href.includes('shop.sunnyeldr.com')) return {name:'shop_merch_click',platform:'shop'};
     return null;
   }
 
@@ -119,11 +119,13 @@ reveals.forEach(el=>io.observe(el));
     ['About','Über Sunny'],
     ['Press','Presse'],
     ['Shop ↗','Shop ↗'],
+    ['Shop','Shop'],
     ['Nordic fire · modern form','Nordisches Feuer · moderne Form'],
     ['Dark vocals, cinematic atmosphere and a modern Nordic visual world.','Dunkle Vocals, cineastische Atmosphäre und eine moderne nordische Bildwelt.'],
     ['Listen Now','Jetzt anhören'],
     ['Watch','Ansehen'],
     ['Official Store ↗','Offizieller Shop ↗'],
+    ['Official Store','Offizieller Shop'],
     ['Independent Artist','Independent Artist'],
     ['Music · Visuals · ELDR ÆSTHETIC','Musik · Visuals · ELDR ÆSTHETIC'],
     ['The world is growing.','Die Welt wächst.'],
