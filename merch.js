@@ -31,7 +31,7 @@
 
   const sizeOptions = [...document.querySelectorAll(".merch-size-option")];
   const buyButton = document.querySelector("#merchBuy");
-  const checkoutBase = "https://azfu5b-nn.myshopify.com/buy/";
+  const checkoutBase = "https://shop.sunnyeldr.com/buy/";
   const checkoutVersion = "?ucp/version=2026-08-25";
 
   sizeOptions.forEach((button) => {
