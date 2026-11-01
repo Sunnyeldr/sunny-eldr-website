@@ -126,11 +126,17 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
           <p class="merch-manifesto">Streetwear first. Artist merchandise second.</p>
           <div class="merch-size-block">
             <span id="availableSizes">Available sizes</span>
-            <ul aria-labelledby="availableSizes"><li>S</li><li>M</li><li>L</li><li>XL</li><li>2XL</li></ul>
+            <ul aria-labelledby="availableSizes">
+              <li><button class="merch-size-option is-selected" type="button" data-variant-id="67826513510790" aria-pressed="true">S</button></li>
+              <li><button class="merch-size-option" type="button" data-variant-id="67826513543558" aria-pressed="false">M</button></li>
+              <li><button class="merch-size-option" type="button" data-variant-id="67826513576326" aria-pressed="false">L</button></li>
+              <li><button class="merch-size-option" type="button" data-variant-id="67826513609094" aria-pressed="false">XL</button></li>
+              <li><button class="merch-size-option" type="button" data-variant-id="67826513641862" aria-pressed="false">2XL</button></li>
+            </ul>
             <p>Runs large — choose one size down for a regular fit.</p>
           </div>
-          <a class="merch-buy" href="https://azfu5b-nn.myshopify.com/products/break-the-silence-oversized-tee" target="_blank" rel="noopener noreferrer">SHOP ON SHOPIFY ↗</a>
-          <p class="merch-purchase-note">Secure checkout, variants and delivery details open on Shopify.</p>
+          <a class="merch-buy" id="merchBuy" href="https://azfu5b-nn.myshopify.com/buy/67826513510790:1?ucp/version=2026-08-25" target="_blank" rel="noopener noreferrer">BUY NOW ↗</a>
+          <p class="merch-purchase-note">Secure checkout and delivery details open on Shopify.</p>
           <dl class="merch-specs">
             <div><dt>Material</dt><dd>100% organic cotton · 200 g/m²</dd></div>
             <div><dt>Fit</dt><dd>Oversized · unisex · dropped shoulders</dd></div>
