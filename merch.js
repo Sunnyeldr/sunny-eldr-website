@@ -28,4 +28,23 @@
   }
 
   thumbnails.forEach((button) => button.addEventListener("click", () => selectImage(button)));
+
+  const sizeOptions = [...document.querySelectorAll(".merch-size-option")];
+  const buyButton = document.querySelector("#merchBuy");
+  const checkoutBase = "https://azfu5b-nn.myshopify.com/buy/";
+  const checkoutVersion = "?ucp/version=2026-08-25";
+
+  sizeOptions.forEach((button) => {
+    button.addEventListener("click", () => {
+      sizeOptions.forEach((option) => {
+        const selected = option === button;
+        option.classList.toggle("is-selected", selected);
+        option.setAttribute("aria-pressed", String(selected));
+      });
+
+      if (buyButton && button.dataset.variantId) {
+        buyButton.href = `${checkoutBase}${button.dataset.variantId}:1${checkoutVersion}`;
+      }
+    });
+  });
 })();
