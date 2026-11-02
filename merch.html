@@ -49,7 +49,49 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
   ],
   "description":"Oversized high-neck tee in 100% organic cotton with a small ELDR rune mark on the chest and large Sunny ELDR back print.",
   "brand":{"@type":"Brand","name":"ELDR ÆSTHETIC"},
-  "offers":{"@type":"Offer","priceCurrency":"EUR","price":"49.90","availability":"https://schema.org/InStock","url":"https://shop.sunnyeldr.com/products/break-the-silence-oversized-tee"}
+  "offers":{
+    "@type":"Offer",
+    "priceCurrency":"EUR",
+    "price":"49.90",
+    "availability":"https://schema.org/InStock",
+    "itemCondition":"https://schema.org/NewCondition",
+    "url":"https://shop.sunnyeldr.com/products/break-the-silence-oversized-tee",
+    "shippingDetails":{
+      "@type":"OfferShippingDetails",
+      "shippingRate":{
+        "@type":"MonetaryAmount",
+        "value":"4.46",
+        "currency":"EUR"
+      },
+      "shippingDestination":{
+        "@type":"DefinedRegion",
+        "addressCountry":"DE"
+      },
+      "deliveryTime":{
+        "@type":"ShippingDeliveryTime",
+        "handlingTime":{
+          "@type":"QuantitativeValue",
+          "minValue":2,
+          "maxValue":5,
+          "unitCode":"DAY"
+        },
+        "transitTime":{
+          "@type":"QuantitativeValue",
+          "minValue":1,
+          "maxValue":20,
+          "unitCode":"DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy":{
+      "@type":"MerchantReturnPolicy",
+      "applicableCountry":"DE",
+      "returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays":14,
+      "returnMethod":"https://schema.org/ReturnByMail",
+      "returnFees":"https://schema.org/ReturnFeesCustomerResponsibility"
+    }
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -65,7 +107,49 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
   ],
   "description":"Heavy black pullover hoodie with a small ELDR chest mark, Æ sleeve mark and large Sunny ELDR STILL HERE back print.",
   "brand":{"@type":"Brand","name":"ELDR ÆSTHETIC"},
-  "offers":{"@type":"Offer","priceCurrency":"EUR","price":"64.90","availability":"https://schema.org/InStock","url":"https://shop.sunnyeldr.com/products/still-here-oversized-hoodie"}
+  "offers":{
+    "@type":"Offer",
+    "priceCurrency":"EUR",
+    "price":"64.90",
+    "availability":"https://schema.org/InStock",
+    "itemCondition":"https://schema.org/NewCondition",
+    "url":"https://shop.sunnyeldr.com/products/still-here-oversized-hoodie",
+    "shippingDetails":{
+      "@type":"OfferShippingDetails",
+      "shippingRate":{
+        "@type":"MonetaryAmount",
+        "value":"6.52",
+        "currency":"EUR"
+      },
+      "shippingDestination":{
+        "@type":"DefinedRegion",
+        "addressCountry":"DE"
+      },
+      "deliveryTime":{
+        "@type":"ShippingDeliveryTime",
+        "handlingTime":{
+          "@type":"QuantitativeValue",
+          "minValue":2,
+          "maxValue":5,
+          "unitCode":"DAY"
+        },
+        "transitTime":{
+          "@type":"QuantitativeValue",
+          "minValue":1,
+          "maxValue":20,
+          "unitCode":"DAY"
+        }
+      }
+    },
+    "hasMerchantReturnPolicy":{
+      "@type":"MerchantReturnPolicy",
+      "applicableCountry":"DE",
+      "returnPolicyCategory":"https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays":14,
+      "returnMethod":"https://schema.org/ReturnByMail",
+      "returnFees":"https://schema.org/ReturnFeesCustomerResponsibility"
+    }
+  }
 }
 </script>
 <link rel="stylesheet" href="site.css">
