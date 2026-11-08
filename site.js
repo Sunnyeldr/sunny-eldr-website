@@ -218,6 +218,7 @@ reveals.forEach(el=>io.observe(el));
 
   const els = {
     music: document.getElementById("music"),
+    kicker: document.getElementById("liveReleaseKicker"),
     cover: document.getElementById("liveReleaseCover"),
     side: document.getElementById("liveReleaseSide"),
     title: document.getElementById("liveReleaseTitle"),
@@ -249,6 +250,10 @@ reveals.forEach(el=>io.observe(el));
     if(!latest) return;
 
     if(els.music) els.music.setAttribute("data-era-title", (latest.title || "LATEST").toUpperCase());
+    if(els.kicker){
+      const de = localStorage.getItem("sunnySiteLanguage") === "de";
+      els.kicker.textContent = de ? "Neuester Release · Automatisch synchronisiert" : "Latest Release · Synced automatically";
+    }
     if(els.title) els.title.textContent = latest.title || "Latest Release";
     if(els.cover){
       if(latest.cover){
@@ -265,21 +270,15 @@ reveals.forEach(el=>io.observe(el));
     }
     if(els.copy){
       const de = localStorage.getItem("sunnySiteLanguage") === "de";
-      if(source === "spotify"){
-        els.copy.textContent = de
-          ? "Der neueste Release von Sunny ELDR — automatisch über Spotify aktualisiert."
-          : "The latest release from Sunny ELDR — updated automatically from Spotify.";
-      }else{
-        els.copy.textContent = de
-          ? "Aktuellster öffentlich bestätigter Sunny-ELDR-Release. Die Spotify-Live-Synchronisierung wird weiter automatisch versucht."
-          : "Latest publicly confirmed Sunny ELDR release. Spotify live sync continues automatically.";
-      }
+      els.copy.textContent = de
+        ? "Der neueste Release von Sunny ELDR — Cover, Datum und Streaming-Link werden automatisch synchronisiert."
+        : "The latest Sunny ELDR release — artwork, date and listening link kept in sync automatically.";
     }
     if(els.type) els.type.textContent = releaseTypeLabel(latest.type);
     if(els.date) els.date.textContent = latest.releaseDate || "";
     if(els.spotify && latest.spotifyUrl){
       els.spotify.href = latest.spotifyUrl;
-      els.spotify.textContent = source === "spotify" ? "Open on Spotify" : "Open latest release";
+      els.spotify.textContent = source === "spotify" ? "Open on Spotify" : "Listen / Stream";
     }
     if(els.player && els.playerWrap){
       if(latest.embedUrl){
@@ -295,15 +294,12 @@ reveals.forEach(el=>io.observe(el));
       const stamp = updatedAt ? new Date(updatedAt) : null;
       const de = localStorage.getItem("sunnySiteLanguage") === "de";
       const locale = de ? "de-DE" : "en-GB";
-      if(source === "spotify"){
-        els.status.textContent = stamp && !Number.isNaN(stamp.getTime())
-          ? (de ? "Live von Spotify · geprüft " : "Live from Spotify · checked ") + stamp.toLocaleString(locale,{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})
-          : (de ? "Live von Spotify" : "Live from Spotify");
-      }else{
-        els.status.textContent = de
-          ? "Aktueller Fallback · Spotify-Live-Sync wird automatisch erneut versucht"
-          : "Current fallback · Spotify live sync will retry automatically";
-      }
+      const sourceLabel = source === "spotify" ? "Spotify" : (source === "apple" ? "Apple Music" : "Release data");
+      els.status.textContent = stamp && !Number.isNaN(stamp.getTime())
+        ? (de ? "Automatisch synchronisiert · " : "Synced automatically · ") +
+          sourceLabel + " · " +
+          stamp.toLocaleString(locale,{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})
+        : (de ? "Automatische Release-Synchronisierung aktiv" : "Automatic release sync active");
     }
   }
 
