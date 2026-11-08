@@ -1,50 +1,4 @@
 (function(){
-  const endpoint="https://sunny-social-stats.sash-kelch.workers.dev";
-
-  function compact(value){
-    const n=Number(value);
-    if(!Number.isFinite(n)) return "—";
-    if(n>=1000000) return (n/1000000).toFixed(1).replace(/\.0$/,"")+"M";
-    if(n>=1000) return (n/1000).toFixed(n>=100000?0:1).replace(/\.0$/,"")+"K";
-    return Math.round(n).toLocaleString("en-US");
-  }
-
-  function animateNumber(el,target,delay){
-    if(!el) return;
-    const n=Number(target);
-    if(!Number.isFinite(n)) return;
-    const start=performance.now()+(delay||0);
-    const duration=1350;
-    el.classList.remove("is-rolling");
-    void el.offsetWidth;
-    el.classList.add("is-rolling");
-    function frame(now){
-      if(now<start){requestAnimationFrame(frame);return}
-      const p=Math.min((now-start)/duration,1);
-      const eased=1-Math.pow(1-p,4);
-      el.textContent=compact(n*eased);
-      if(p<1) requestAnimationFrame(frame);
-      else el.textContent=compact(n);
-    }
-    requestAnimationFrame(frame);
-  }
-
-  animateNumber(document.getElementById("ytSubscribers"),11387,50);
-  animateNumber(document.getElementById("ttFollowers"),38600,160);
-  animateNumber(document.getElementById("igFollowers"),69600,270);
-  animateNumber(document.getElementById("fbFollowers"),49000,380);
-
-  fetch(endpoint,{cache:"no-store"})
-    .then(r=>{if(!r.ok) throw new Error("stats");return r.json()})
-    .then(data=>{
-      if(data?.youtube?.subscribers!=null) animateNumber(document.getElementById("ytSubscribers"),data.youtube.subscribers,0);
-      if(data?.tiktok?.followers!=null) animateNumber(document.getElementById("ttFollowers"),data.tiktok.followers,0);
-    })
-    .catch(()=>{});
-})();
-
-(function(){
-  const endpoint="https://sunny-social-stats.sash-kelch.workers.dev";
   const grid=document.querySelector("#videos .video-grid");
   if(!grid) return;
 
@@ -126,8 +80,15 @@
   `;
   document.head.appendChild(style);
 
-  fetch(endpoint,{cache:"no-store"})
-    .then(r=>{if(!r.ok) throw new Error("videos");return r.json()})
-    .then(data=>render(data.youtubeVideos))
-    .catch(()=>render([]));
+  if(window.sunnySocialStats){
+    let signature=null;
+    window.sunnySocialStats.subscribe(data=>{
+      const videos=data.youtubeVideos || [];
+      const next=JSON.stringify(videos);
+      if(next!==signature){signature=next;render(videos);}
+    });
+    window.sunnySocialStats.load().catch(()=>render([]));
+  }else{
+    render([]);
+  }
 })();

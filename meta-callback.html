@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Meta verbinden | SUNNY ELDR</title>
+  <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#090b0e;color:#f5f5f3;font:16px/1.6 system-ui}.box{max-width:560px;padding:32px}</style>
+</head>
+<body>
+  <div class="box"><h1>Meta wird verbunden…</h1><p>Die Kontofreigabe wird geprüft.</p></div>
+  <script>
+    const query=window.location.search;
+    window.history.replaceState(null,"",window.location.pathname);
+    window.location.replace("https://sunny-social-stats.sash-kelch.workers.dev/meta/callback"+query);
+  </script>
+</body>
+</html>

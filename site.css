@@ -85,7 +85,7 @@ button,input,textarea,select{font:inherit}
 .hero-stat-icon img{width:26px;height:26px;object-fit:contain}
 .hero-stat strong{display:block;font-size:22px;line-height:1;font-weight:750;font-variant-numeric:tabular-nums}
 .hero-stat strong.is-rolling{animation:numberRoll .9s cubic-bezier(.2,.8,.2,1)}
-.hero-stat>span:last-child{display:block;margin-top:5px;font-size:10px;color:#e1e4e7}
+.hero-stat>.hero-stat-label{display:block;margin-top:5px;font-size:10px;color:#e1e4e7}
 @keyframes numberRoll{0%{opacity:.25;filter:blur(5px);transform:translateY(12px) rotateX(48deg)}100%{opacity:1;filter:blur(0);transform:none}}
 
 /* FEATURE ROW */
@@ -462,3 +462,8 @@ footer{padding:28px 0 36px;color:#737a81;font-size:10px}
   outline:2px solid var(--accent);outline-offset:4px;
 }
 @media(max-width:560px){.platform-row{margin-right:0}}
+
+/* API-backed audience counts */
+.hero-stat-status{display:block;margin-top:6px;font-size:8px;line-height:1.3;color:#b4bcc4}
+.hero-stat[data-state="live"] .hero-stat-status::before{content:"";display:inline-block;width:4px;height:4px;margin-right:4px;border-radius:50%;background:#86c29b;vertical-align:middle}
+.hero-stat[data-state="stale"] .hero-stat-status{color:#d0b783}

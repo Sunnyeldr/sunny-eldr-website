@@ -37,7 +37,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
   loadGoogleAnalytics();
 }
 </script>
-<link rel="stylesheet" href="site.css?v=20261108-17">
+<link rel="stylesheet" href="site.css?v=20261108-18">
 </head>
 <body>
 
@@ -73,25 +73,29 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
     </div>
 
     <section class="audience hero-audience" aria-label="Audience">
-      <div class="hero-stat">
+      <div class="hero-stat" data-social-platform="youtube" data-preserve-text aria-busy="true">
         <span class="hero-stat-icon youtube"><img src="https://cdn.simpleicons.org/youtube/FF0000" alt=""></span>
-        <strong id="ytSubscribers">11.3K</strong>
-        <span>Subscribers</span>
+        <strong id="ytSubscribers">—</strong>
+        <span class="hero-stat-label">Subscribers</span>
+        <small class="hero-stat-status">Loading…</small>
       </div>
-      <div class="hero-stat">
+      <div class="hero-stat" data-social-platform="tiktok" data-preserve-text aria-busy="true">
         <span class="hero-stat-icon tiktok"><img src="https://cdn.simpleicons.org/tiktok/25F4EE" alt=""></span>
-        <strong id="ttFollowers">38.6K</strong>
-        <span>Followers</span>
+        <strong id="ttFollowers">—</strong>
+        <span class="hero-stat-label">Followers</span>
+        <small class="hero-stat-status">Loading…</small>
       </div>
-      <div class="hero-stat">
+      <div class="hero-stat" data-social-platform="instagram" data-preserve-text aria-busy="true">
         <span class="hero-stat-icon instagram"><img src="https://cdn.simpleicons.org/instagram/E4405F" alt=""></span>
-        <strong id="igFollowers">69.6K</strong>
-        <span>Followers</span>
+        <strong id="igFollowers">—</strong>
+        <span class="hero-stat-label">Followers</span>
+        <small class="hero-stat-status">Loading…</small>
       </div>
-      <div class="hero-stat">
+      <div class="hero-stat" data-social-platform="facebook" data-preserve-text aria-busy="true">
         <span class="hero-stat-icon facebook"><img src="https://cdn.simpleicons.org/facebook/1877F2" alt=""></span>
-        <strong id="fbFollowers">49K</strong>
-        <span>Followers</span>
+        <strong id="fbFollowers">—</strong>
+        <span class="hero-stat-label">Followers</span>
+        <small class="hero-stat-status">Loading…</small>
       </div>
     </section>
   </div>
@@ -280,7 +284,8 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
   </div>
 </div>
 
-<script src="youtube-live.js?v=20261108-9" defer></script>
-<script src="site.js?v=20261108-16" defer></script>
+<script src="social-live.js?v=20261108-1" defer></script>
+<script src="youtube-live.js?v=20261108-10" defer></script>
+<script src="site.js?v=20261108-17" defer></script>
 </body>
 </html>

@@ -51,30 +51,6 @@ reveals.forEach(el=>io.observe(el));
 })();
 
 (function(){
-  const endpoint="https://sunny-social-stats.sash-kelch.workers.dev";
-
-  function compact(value){
-    const n=Number(value);
-    if(!Number.isFinite(n)) return "—";
-    if(n>=1000000) return (n/1000000).toFixed(1).replace(/\.0$/,'')+"M";
-    if(n>=1000) return (n/1000).toFixed(n>=100000?0:1).replace(/\.0$/,'')+"K";
-    return n.toLocaleString("en-US");
-  }
-
-  fetch(endpoint,{cache:"no-store"})
-    .then(r=>{if(!r.ok) throw new Error("stats"); return r.json()})
-    .then(data=>{
-      if(data.youtube && document.getElementById('ytSubscribers')){
-        document.getElementById('ytSubscribers').textContent=compact(data.youtube.subscribers);
-      }
-      if(data.tiktok && document.getElementById('ttFollowers')){
-        document.getElementById('ttFollowers').textContent=compact(data.tiktok.followers);
-      }
-    })
-    .catch(()=>{});
-})();
-
-(function(){
   function analyticsAllowed(){
     return localStorage.getItem('sunnyAnalyticsConsent')==='accepted' &&
            window.__sunnyGaLoaded===true &&
