@@ -294,7 +294,7 @@ reveals.forEach(el=>io.observe(el));
       const stamp = updatedAt ? new Date(updatedAt) : null;
       const de = localStorage.getItem("sunnySiteLanguage") === "de";
       const locale = de ? "de-DE" : "en-GB";
-      const sourceLabel = source === "spotify" ? "Spotify" : (source === "apple" ? "Apple Music" : "Release data");
+      const sourceLabel = source === "spotify" ? "Spotify" : (source === "confirmed" ? "Official release" : (source === "apple" ? "Apple Music" : "Release data"));
       els.status.textContent = stamp && !Number.isNaN(stamp.getTime())
         ? (de ? "Automatisch synchronisiert · " : "Synced automatically · ") +
           sourceLabel + " · " +
