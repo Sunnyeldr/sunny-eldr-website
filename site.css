@@ -441,3 +441,13 @@ footer{padding:28px 0 36px;color:#737a81;font-size:10px}
 .discography-grid .album-card{
   cursor:pointer;
 }
+.release-filter-btn:disabled{cursor:default;opacity:.55}
+.discography-arrow:disabled{cursor:default;opacity:.35}
+.discography-arrow[hidden]{display:none}
+.discography-loading,.discography-empty{padding:24px}
+.discography-empty .btn-row{justify-content:center;margin-top:12px}
+.album-art-placeholder{display:grid;place-items:center;height:100%;font-size:48px;color:var(--soft)}
+.album-card:focus-visible,.release-filter-btn:focus-visible,.discography-empty .btn:focus-visible{
+  outline:2px solid var(--accent);outline-offset:4px;
+}
+@media(max-width:560px){.platform-row{margin-right:0}}
