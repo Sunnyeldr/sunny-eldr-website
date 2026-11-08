@@ -371,9 +371,25 @@ footer{padding:28px 0 36px;color:#737a81;font-size:10px}
 }
 
 
-/* Lower hero social stats on desktop */
+
+
+
+/* Exact desktop placement for hero social stats */
 @media(min-width:1151px){
+  .hero-layout{
+    height:100%;
+  }
   .hero-audience{
-    transform:translateY(86px);
+    position:absolute;
+    right:0;
+    bottom:42px;
+    transform:none !important;
+    align-self:auto;
+  }
+}
+@media(max-width:1150px){
+  .hero-audience{
+    position:static;
+    transform:none !important;
   }
 }
