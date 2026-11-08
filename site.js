@@ -225,6 +225,7 @@ reveals.forEach(el=>io.observe(el));
     type: document.getElementById("liveReleaseType"),
     date: document.getElementById("liveReleaseDate"),
     player: document.getElementById("liveReleasePlayer"),
+    playerWrap: document.getElementById("liveReleasePlayerWrap"),
     spotify: document.getElementById("liveReleaseSpotify"),
     grid: document.getElementById("liveDiscographyGrid"),
     status: document.getElementById("liveReleaseStatus")
@@ -244,14 +245,19 @@ reveals.forEach(el=>io.observe(el));
     return type.charAt(0).toUpperCase() + type.slice(1);
   }
 
-  function renderLatest(latest, updatedAt){
+  function renderLatest(latest, updatedAt, source){
     if(!latest) return;
 
     if(els.music) els.music.setAttribute("data-era-title", (latest.title || "LATEST").toUpperCase());
     if(els.title) els.title.textContent = latest.title || "Latest Release";
-    if(els.cover && latest.cover){
-      els.cover.src = latest.cover;
-      els.cover.alt = (latest.title || "Latest release") + " by Sunny ELDR cover";
+    if(els.cover){
+      if(latest.cover){
+        els.cover.src = latest.cover;
+        els.cover.alt = (latest.title || "Latest release") + " by Sunny ELDR cover";
+      }else if(source === "fallback"){
+        els.cover.src = "sunny-about.png";
+        els.cover.alt = "Sunny ELDR artist image while Spotify release artwork is unavailable";
+      }
     }
     if(els.side){
       const year = (latest.releaseDate || "").slice(0,4);
@@ -259,24 +265,45 @@ reveals.forEach(el=>io.observe(el));
     }
     if(els.copy){
       const de = localStorage.getItem("sunnySiteLanguage") === "de";
-      els.copy.textContent = de
-        ? "Der neueste Release von Sunny ELDR — automatisch über Spotify aktualisiert."
-        : "The latest release from Sunny ELDR — updated automatically from Spotify.";
+      if(source === "spotify"){
+        els.copy.textContent = de
+          ? "Der neueste Release von Sunny ELDR — automatisch über Spotify aktualisiert."
+          : "The latest release from Sunny ELDR — updated automatically from Spotify.";
+      }else{
+        els.copy.textContent = de
+          ? "Aktuellster öffentlich bestätigter Sunny-ELDR-Release. Die Spotify-Live-Synchronisierung wird weiter automatisch versucht."
+          : "Latest publicly confirmed Sunny ELDR release. Spotify live sync continues automatically.";
+      }
     }
     if(els.type) els.type.textContent = releaseTypeLabel(latest.type);
     if(els.date) els.date.textContent = latest.releaseDate || "";
-    if(els.spotify && latest.spotifyUrl) els.spotify.href = latest.spotifyUrl;
-    if(els.player && latest.embedUrl){
-      els.player.src = latest.embedUrl + "?utm_source=generator";
-      els.player.title = (latest.title || "Latest Sunny ELDR release") + " on Spotify";
+    if(els.spotify && latest.spotifyUrl){
+      els.spotify.href = latest.spotifyUrl;
+      els.spotify.textContent = source === "spotify" ? "Open on Spotify" : "Open latest release";
+    }
+    if(els.player && els.playerWrap){
+      if(latest.embedUrl){
+        els.player.src = latest.embedUrl + "?utm_source=generator";
+        els.player.title = (latest.title || "Latest Sunny ELDR release") + " on Spotify";
+        els.playerWrap.style.display = "";
+      }else{
+        els.player.removeAttribute("src");
+        els.playerWrap.style.display = "none";
+      }
     }
     if(els.status){
       const stamp = updatedAt ? new Date(updatedAt) : null;
       const de = localStorage.getItem("sunnySiteLanguage") === "de";
       const locale = de ? "de-DE" : "en-GB";
-      els.status.textContent = stamp && !Number.isNaN(stamp.getTime())
-        ? (de ? "Live von Spotify · geprüft " : "Live from Spotify · checked ") + stamp.toLocaleString(locale,{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})
-        : (de ? "Live von Spotify" : "Live from Spotify");
+      if(source === "spotify"){
+        els.status.textContent = stamp && !Number.isNaN(stamp.getTime())
+          ? (de ? "Live von Spotify · geprüft " : "Live from Spotify · checked ") + stamp.toLocaleString(locale,{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})
+          : (de ? "Live von Spotify" : "Live from Spotify");
+      }else{
+        els.status.textContent = de
+          ? "Aktueller Fallback · Spotify-Live-Sync wird automatisch erneut versucht"
+          : "Current fallback · Spotify live sync will retry automatically";
+      }
     }
   }
 
@@ -361,7 +388,7 @@ reveals.forEach(el=>io.observe(el));
     })
     .then(function(data){
       if(!data || data.success !== true) throw new Error("Invalid music data");
-      renderLatest(data.latest, data.updatedAt);
+      renderLatest(data.latest, data.updatedAt, data.source || "spotify");
       renderDiscography(data.releases);
 
       const allBtn=document.querySelector('.release-filter-btn[data-filter="all"]');
