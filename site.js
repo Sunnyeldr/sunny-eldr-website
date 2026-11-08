@@ -316,6 +316,7 @@ reveals.forEach(el=>io.observe(el));
       button.dataset.filterReady = "1";
       button.addEventListener("click", function(){
         applyReleaseFilter(button.dataset.filter || "all");
+        if(els.grid) els.grid.scrollTo({left:0,behavior:"smooth"});
       });
     });
     applyReleaseFilter(activeReleaseFilter);
@@ -362,6 +363,15 @@ reveals.forEach(el=>io.observe(el));
       if(!data || data.success !== true) throw new Error("Invalid music data");
       renderLatest(data.latest, data.updatedAt);
       renderDiscography(data.releases);
+
+      const allBtn=document.querySelector('.release-filter-btn[data-filter="all"]');
+      const albumBtn=document.querySelector('.release-filter-btn[data-filter="album"]');
+      const singleBtn=document.querySelector('.release-filter-btn[data-filter="single"]');
+      if(data.counts){
+        if(allBtn) allBtn.textContent='All (' + (data.counts.all ?? data.releases.length) + ')';
+        if(albumBtn) albumBtn.textContent='Albums (' + (data.counts.albums ?? 0) + ')';
+        if(singleBtn) singleBtn.textContent='Singles (' + (data.counts.singles ?? 0) + ')';
+      }
     })
     .catch(function(){
       if(els.status){
@@ -411,4 +421,26 @@ reveals.forEach(el=>io.observe(el));
   }
 
   if (update()) window.setInterval(update,1000);
+})();
+
+
+// Spotify discography carousel arrows
+(function(){
+  const track=document.getElementById('liveDiscographyGrid');
+  const prev=document.getElementById('discographyPrev');
+  const next=document.getElementById('discographyNext');
+  if(!track||!prev||!next) return;
+
+  function step(){
+    const card=track.querySelector('.album-card:not([hidden])');
+    return card ? card.getBoundingClientRect().width + 16 : Math.min(track.clientWidth*.8,360);
+  }
+
+  prev.addEventListener('click',()=>track.scrollBy({left:-step(),behavior:'smooth'}));
+  next.addEventListener('click',()=>track.scrollBy({left:step(),behavior:'smooth'}));
+
+  track.addEventListener('keydown',event=>{
+    if(event.key==='ArrowLeft') track.scrollBy({left:-step(),behavior:'smooth'});
+    if(event.key==='ArrowRight') track.scrollBy({left:step(),behavior:'smooth'});
+  });
 })();
