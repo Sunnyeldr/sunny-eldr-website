@@ -140,6 +140,11 @@ reveals.forEach(el=>io.observe(el));
     ['Live Performance','Live-Performance'],
     ['Cinematic Video','Cinematic Video'],
     ['Selected Releases','Ausgewählte Releases'],
+    ['All','Alle'],
+    ['Albums','Alben'],
+    ['Singles','Singles'],
+    ['New Album','Neues Album'],
+    ['Pre-Save on Spotify','Auf Spotify vormerken'],
     ['The World of Sunny ELDR','Die Welt von Sunny ELDR'],
     ['A voice from the north.','Eine Stimme aus dem Norden.'],
     ['Built for now.','Für das Jetzt gemacht.'],
@@ -275,18 +280,63 @@ reveals.forEach(el=>io.observe(el));
     }
   }
 
-  function renderDiscography(releases){
-    if(!els.grid || !Array.isArray(releases) || !releases.length) return;
+  let activeReleaseFilter = "all";
 
-    els.grid.innerHTML = releases.slice(0,3).map(function(item){
+  function normalizeReleaseType(type){
+    const value = String(type || "").toLowerCase();
+    if(value.includes("single")) return "single";
+    if(value.includes("album")) return "album";
+    return "other";
+  }
+
+  function applyReleaseFilter(filter){
+    activeReleaseFilter = filter || "all";
+    const buttons = document.querySelectorAll(".release-filter-btn");
+    buttons.forEach(function(button){
+      const active = button.dataset.filter === activeReleaseFilter;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-selected", active ? "true" : "false");
+    });
+
+    if(!els.grid) return;
+    els.grid.querySelectorAll(".album-card").forEach(function(card){
+      let type = card.dataset.type || "";
+      if(!type){
+        const meta = (card.querySelector("small")?.textContent || "").toLowerCase();
+        type = meta.includes("single") ? "single" : (meta.includes("album") ? "album" : "other");
+        card.dataset.type = type;
+      }
+      card.hidden = activeReleaseFilter !== "all" && type !== activeReleaseFilter;
+    });
+  }
+
+  function setupReleaseFilters(){
+    document.querySelectorAll(".release-filter-btn").forEach(function(button){
+      if(button.dataset.filterReady === "1") return;
+      button.dataset.filterReady = "1";
+      button.addEventListener("click", function(){
+        applyReleaseFilter(button.dataset.filter || "all");
+      });
+    });
+    applyReleaseFilter(activeReleaseFilter);
+  }
+
+  function renderDiscography(releases){
+    if(!els.grid || !Array.isArray(releases) || !releases.length){
+      setupReleaseFilters();
+      return;
+    }
+
+    els.grid.innerHTML = releases.map(function(item){
       const title = escapeHtml(item.title || "Release");
+      const rawType = normalizeReleaseType(item.type);
       const type = escapeHtml(releaseTypeLabel(item.type));
       const date = escapeHtml(item.releaseDate || "");
       const cover = escapeHtml(item.cover || "https://sunnyeldr.com/eldrheim-cover.png");
       const url = escapeHtml(item.spotifyUrl || "https://open.spotify.com/artist/26RwT7kIoTnT8oT65MGS2P");
 
       return `
-        <a class="album-card reveal in" href="${url}" target="_blank" rel="noopener noreferrer">
+        <a class="album-card reveal in" data-type="${rawType}" href="${url}" target="_blank" rel="noopener noreferrer">
           <div class="album-art">
             <img src="${cover}" alt="${title} by Sunny ELDR cover" loading="lazy">
           </div>
@@ -297,7 +347,11 @@ reveals.forEach(el=>io.observe(el));
         </a>
       `;
     }).join("");
+
+    setupReleaseFilters();
   }
+
+  setupReleaseFilters();
 
   fetch(endpoint, { cache:"no-store" })
     .then(function(response){
