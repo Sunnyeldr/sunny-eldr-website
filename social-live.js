@@ -18,11 +18,12 @@
     for(const [name,config] of Object.entries(platforms)){
       const element=document.getElementById(config.id);if(!element)continue;
       const card=element.closest(".hero-stat"),info=data?.platforms?.[name];
-      const value=number(info?.count ?? data?.[name]?.[name==="youtube"?"subscribers":"followers"]);
-      const stamp=info?.updatedAt || (value!==null?data?.updatedAt:null),date=stamp?new Date(stamp):null;
+      const manualValue=number(card.dataset.manualCount),manual=manualValue!==null;
+      const value=manual?manualValue:number(info?.count ?? data?.[name]?.[name==="youtube"?"subscribers":"followers"]);
+      const stamp=manual?card.dataset.updatedAt:info?.updatedAt || (value!==null?data?.updatedAt:null),date=stamp?new Date(manual?stamp+"T12:00:00":stamp):null;
       const age=date?Date.now()-date.getTime():Infinity;
-      const live=value!==null && !failed && (!info || info.status==="live") && age>=-60000 && age<10*60000;
-      const state=value!==null?(live?"live":"stale"):!data&&pending?"loading":"unavailable";
+      const live=!manual && value!==null && !failed && (!info || info.status==="live") && age>=-60000 && age<10*60000;
+      const state=manual?"manual":value!==null?(live?"live":"stale"):!data&&pending?"loading":"unavailable";
       const label=config.label[de()?1:0];
       const displayed=value===null?(state==="loading"?"…":"—"):compact(value);
       if(element.textContent!==displayed){
@@ -32,9 +33,11 @@
       card.dataset.state=state;card.setAttribute("aria-busy",String(state==="loading"));
       card.querySelector(".hero-stat-label").textContent=label;
       const status=card.querySelector(".hero-stat-status");
-      status.textContent=state==="live"?"Live":state==="stale"?(de()?"Letzter Stand":"Last update"):
+      const updated=date&&!Number.isNaN(date.getTime())?(manual
+        ?date.toLocaleDateString(de()?"de-DE":"en-GB",{day:"2-digit",month:"2-digit",year:"numeric"})
+        :date.toLocaleString(de()?"de-DE":"en-GB",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"})):"";
+      status.textContent=state==="manual"?(de()?"Stand: ":"As of ")+updated:state==="live"?"Live":state==="stale"?(de()?"Letzter Stand":"Last update"):
         state==="loading"?(de()?"Wird geladen…":"Loading…"):(de()?"Nicht verfügbar":"Unavailable");
-      const updated=date&&!Number.isNaN(date.getTime())?date.toLocaleString(de()?"de-DE":"en-GB",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"}):"";
       const title=value===null?(de()?"Aktuelle Zahl vorübergehend nicht verfügbar":"Current count is temporarily unavailable"):
         value.toLocaleString(de()?"de-DE":"en-US")+" "+label+(updated?" · "+updated:"");
       element.title=title;status.title=title;

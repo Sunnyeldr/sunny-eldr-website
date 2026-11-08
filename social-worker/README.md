@@ -6,6 +6,8 @@ Worker: `sunny-social-stats`, endpoint `https://sunny-social-stats.sash-kelch.wo
 
 YouTube public subscriber counts are rounded by YouTube. Website abbreviations such as `17.2K` also round the display; the tooltip contains the returned count. A new follower need not change an abbreviated display immediately.
 
+The owner has paused Meta setup. Instagram and Facebook currently use the owner-provided counts in `index.html` (`data-manual-count` with `data-updated-at`). These values survive API refreshes and outages and display their date instead of a Live badge. YouTube and TikTok continue to update from their connected APIs. Remove a card's manual-count attributes when the owner later requests reactivating its API integration.
+
 ## Existing configuration
 
 - `STATS_KV`: private KV storage for tokens, owner invitations, and the public count snapshot.
