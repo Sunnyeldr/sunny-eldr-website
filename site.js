@@ -318,3 +318,43 @@ reveals.forEach(el=>io.observe(el));
       }
     });
 })();
+
+
+// Svarnett live release countdown
+(function(){
+  const card = document.querySelector(".release-countdown-card");
+  if (!card) return;
+
+  const target = new Date(card.dataset.releaseAt || "2026-11-20T00:00:00");
+  const daysEl = document.getElementById("releaseDays");
+  const hoursEl = document.getElementById("releaseHours");
+  const minutesEl = document.getElementById("releaseMinutes");
+  const secondsEl = document.getElementById("releaseSeconds");
+  const live = card.querySelector(".countdown-live");
+
+  function two(value){ return String(value).padStart(2,"0"); }
+
+  function update(){
+    const remaining = target.getTime() - Date.now();
+
+    if (remaining <= 0) {
+      card.classList.add("is-released");
+      if (live) live.innerHTML = '<div><strong>OUT NOW</strong><span>SVARNETT · Spotify</span></div>';
+      return false;
+    }
+
+    const totalSeconds = Math.floor(remaining / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+
+    if (daysEl) daysEl.textContent = two(days);
+    if (hoursEl) hoursEl.textContent = two(hours);
+    if (minutesEl) minutesEl.textContent = two(minutes);
+    if (secondsEl) secondsEl.textContent = two(seconds);
+    return true;
+  }
+
+  if (update()) window.setInterval(update,1000);
+})();

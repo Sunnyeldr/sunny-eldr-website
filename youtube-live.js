@@ -107,7 +107,7 @@
   const style = document.createElement("style");
   style.id = "sunny-video-slider-style";
   style.textContent = `
-    #videos .video-grid.video-slider-mode{display:block!important;position:relative;max-width:1180px;margin:0 auto;overflow:visible}
+    #videos .video-grid.video-slider-mode{display:block!important;position:relative;max-width:1040px;margin:0 auto;overflow:visible}
     .sunny-slider{position:relative;outline:none}
     .sunny-slide-stage{position:relative;aspect-ratio:16/8.4;min-height:520px;overflow:hidden;background:#090909;border:1px solid rgba(255,255,255,.08);box-shadow:0 40px 100px rgba(0,0,0,.38)}
     .sunny-slide-link{position:absolute;inset:0;display:block;overflow:hidden}
@@ -120,7 +120,7 @@
     .sunny-slide-kicker::before{content:"";width:34px;height:1px;background:#d7b28a}
     .sunny-slide-play{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:82px;height:82px;border-radius:50%;border:1px solid rgba(255,255,255,.55);display:grid;place-items:center;background:rgba(5,5,5,.28);backdrop-filter:blur(12px);font-size:19px;padding-left:4px;pointer-events:none;transition:transform .28s ease,background .28s ease}
     .sunny-slide-link:hover .sunny-slide-play{transform:translate(-50%,-50%) scale(1.08);background:rgba(5,5,5,.48)}
-    .sunny-slider-arrow{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:58px;height:58px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(5,5,5,.54);backdrop-filter:blur(15px);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:25px;line-height:1;transition:transform .25s ease,background .25s ease,border-color .25s ease}
+    .sunny-slider-arrow{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(5,5,5,.54);backdrop-filter:blur(15px);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:25px;line-height:1;transition:transform .25s ease,background .25s ease,border-color .25s ease}
     .sunny-slider-arrow:hover{background:#f3eee7;color:#070707;border-color:#f3eee7}
     .sunny-slider-arrow.prev{left:-29px}.sunny-slider-arrow.next{right:-29px}
     .sunny-slider-arrow.prev:hover{transform:translateY(-50%) translateX(-3px)}.sunny-slider-arrow.next:hover{transform:translateY(-50%) translateX(3px)}
@@ -195,7 +195,7 @@
       setTimeout(()=>{
         const videoTitle=video.title||"Sunny ELDR";
         const videoUrl=video.url||(video.id?`https://www.youtube.com/watch?v=${video.id}`:"https://youtube.com/@sunny-eldr");
-        const thumb=video.thumbnail||(video.id?`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`:"sunny-hero.png");
+        const thumb=video.thumbnail||(video.id?`https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`:"sunny-hero-2026.webp");
         link.href=videoUrl;
         image.src=thumb;
         image.alt=`${videoTitle} by Sunny ELDR`;
