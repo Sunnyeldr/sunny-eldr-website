@@ -192,21 +192,21 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
 <section class="era" id="music" data-era-title="LATEST">
   <div class="w era-grid">
     <div class="era-art-wrap reveal">
-      <img id="liveReleaseCover" class="era-art" src="eldrheim-cover.png" alt="Latest Sunny ELDR release cover">
+      <img id="liveReleaseCover" class="era-art" src="sunny-about.png" alt="Sunny ELDR artist image while latest release loads">
       <div class="era-number" id="liveReleaseSide">Sunny ELDR · Latest Release</div>
     </div>
     <div class="reveal">
       <div class="kicker">Latest Release · Live from Spotify</div>
-      <h2 id="liveReleaseTitle">ELDRHEIM</h2>
+      <h2 id="liveReleaseTitle">The Lantern</h2>
       <div class="era-line"></div>
-      <p class="copy" id="liveReleaseCopy">The latest release from Sunny ELDR. Updated automatically from Spotify.</p>
-      <div class="era-meta"><span id="liveReleaseType">Album</span><span id="liveReleaseDate">2026</span></div>
-      <div class="player"><iframe id="liveReleasePlayer" src="https://open.spotify.com/embed/track/4xzgFPEFPtZiveLQa5oJop?utm_source=generator" height="152" loading="lazy" title="Latest Sunny ELDR release on Spotify" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
+      <p class="copy" id="liveReleaseCopy">Latest public Sunny ELDR release. Spotify live data updates this section automatically when available.</p>
+      <div class="era-meta"><span id="liveReleaseType">Single</span><span id="liveReleaseDate">2026-10-27</span></div>
+      <div class="player" id="liveReleasePlayerWrap" style="display:none"><iframe id="liveReleasePlayer" src="" height="152" loading="lazy" title="Latest Sunny ELDR release on Spotify" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
       <div class="btn-row">
-        <a id="liveReleaseSpotify" class="btn primary" target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/artist/26RwT7kIoTnT8oT65MGS2P">Open on Spotify</a>
+        <a id="liveReleaseSpotify" class="btn primary" target="_blank" rel="noopener noreferrer" href="https://distrokid.com/hyperfollow/sunnyeldr/the-lantern">Open latest release</a>
         <a class="btn" href="#discography">Latest Releases</a>
       </div>
-      <div class="live-updated-note" id="liveReleaseStatus">Automatic Spotify updates enabled</div>
+      <div class="live-updated-note" id="liveReleaseStatus">Latest release fallback · Spotify live sync loading</div>
     </div>
   </div>
 </section>
@@ -273,6 +273,6 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
 </div>
 
 <script src="youtube-live.js?v=20261108-9" defer></script>
-<script src="site.js?v=20261108-9" defer></script>
+<script src="site.js?v=20261108-12" defer></script>
 </body>
 </html>
