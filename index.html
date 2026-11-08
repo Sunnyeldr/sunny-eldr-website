@@ -37,7 +37,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
   loadGoogleAnalytics();
 }
 </script>
-<link rel="stylesheet" href="site.css?v=20261108-11">
+<link rel="stylesheet" href="site.css?v=20261108-15">
 </head>
 <body>
 
@@ -192,7 +192,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
 <section class="era" id="music" data-era-title="LATEST">
   <div class="w era-grid">
     <div class="era-art-wrap reveal">
-      <img id="liveReleaseCover" class="era-art" src="the-lantern-cover.webp" alt="The Lantern by Sunny ELDR cover">
+      <img id="liveReleaseCover" class="era-art" src="the-lantern-cover.jpg?v=1" alt="The Lantern by Sunny ELDR cover">
       <div class="era-number" id="liveReleaseSide">Sunny ELDR · Latest Release</div>
     </div>
     <div class="reveal">
@@ -203,7 +203,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
       <div class="era-meta"><span id="liveReleaseType">Single</span><span id="liveReleaseDate">2026-10-27</span></div>
       <div class="player" id="liveReleasePlayerWrap" style="display:none"><iframe id="liveReleasePlayer" src="" height="152" loading="lazy" title="Latest Sunny ELDR release on Spotify" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe></div>
       <div class="btn-row">
-        <a id="liveReleaseSpotify" class="btn primary" target="_blank" rel="noopener noreferrer" href="https://distrokid.com/hyperfollow/sunnyeldr/the-lantern">Open latest release</a>
+        <a id="liveReleaseSpotify" class="btn primary" target="_blank" rel="noopener noreferrer" href="https://open.spotify.com/search/The%20Lantern%20Sunny%20ELDR">Open on Spotify</a>
         <a class="btn" href="#discography">Latest Releases</a>
       </div>
       <div class="live-updated-note" id="liveReleaseStatus">Release data sync active</div>
@@ -215,17 +215,23 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
   <div class="w">
     <div class="kicker">Selected Releases</div>
     <h2 class="section-title">Discography</h2>
-    <div class="release-filter" role="tablist" aria-label="Discography filter">
-      <button class="release-filter-btn active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
-      <button class="release-filter-btn" type="button" data-filter="album" role="tab" aria-selected="false">Albums</button>
-      <button class="release-filter-btn" type="button" data-filter="single" role="tab" aria-selected="false">Singles</button>
+    <div class="discography-toolbar">
+      <div class="release-filter" role="tablist" aria-label="Discography filter">
+        <button class="release-filter-btn active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="release-filter-btn" type="button" data-filter="album" role="tab" aria-selected="false">Albums</button>
+        <button class="release-filter-btn" type="button" data-filter="single" role="tab" aria-selected="false">Singles</button>
+      </div>
+      <a class="spotify-discography-link" href="https://open.spotify.com/artist/26RwT7kIoTnT8oT65MGS2P" target="_blank" rel="noopener noreferrer">
+        Open full discography on Spotify ↗
+      </a>
     </div>
     <div class="discography-carousel">
       <button class="discography-arrow prev" id="discographyPrev" type="button" aria-label="Previous releases">‹</button>
       <div class="discography-grid" id="liveDiscographyGrid" tabindex="0">
-        <article class="album-card reveal" data-type="album"><div class="album-art"><img src="eldrheim-cover.png" alt="ELDRHEIM album cover"></div><div class="album-info"><small>Album · 2026</small><h3>ELDRHEIM</h3></div></article>
-        <article class="album-card reveal" data-type="album"><div class="album-art"><img src="hjarta-ur-eldi-cover.png" alt="HJARTA ÚR ELDI album cover"></div><div class="album-info"><small>Album · 2026</small><h3>HJARTA ÚR ELDI</h3></div></article>
-        <article class="album-card reveal" data-type="album"><div class="album-art"><img src="eptir-the-flood-cover.png" alt="EPTIR THE FLOOD album cover"></div><div class="album-info"><small>Album · 2026</small><h3>EPTIR THE FLOOD</h3></div></article>
+        <div class="discography-loading">
+          <strong>Loading Spotify discography…</strong>
+          <span>Albums and singles are being synced directly from Spotify.</span>
+        </div>
       </div>
       <button class="discography-arrow next" id="discographyNext" type="button" aria-label="Next releases">›</button>
     </div>
@@ -273,6 +279,6 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
 </div>
 
 <script src="youtube-live.js?v=20261108-9" defer></script>
-<script src="site.js?v=20261108-14" defer></script>
+<script src="site.js?v=20261108-15" defer></script>
 </body>
 </html>
