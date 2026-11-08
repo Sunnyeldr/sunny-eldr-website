@@ -256,12 +256,15 @@ reveals.forEach(el=>io.observe(el));
     }
     if(els.title) els.title.textContent = latest.title || "Latest Release";
     if(els.cover){
-      if(latest.cover){
+      if(source === "confirmed" && String(latest.title || "").toLowerCase() === "the lantern"){
+        els.cover.src = "the-lantern-cover.jpg?v=1";
+        els.cover.alt = "The Lantern by Sunny ELDR cover";
+      }else if(latest.cover){
         els.cover.src = latest.cover;
         els.cover.alt = (latest.title || "Latest release") + " by Sunny ELDR cover";
-      }else if(source === "fallback"){
-        els.cover.src = "sunny-about.png";
-        els.cover.alt = "Sunny ELDR artist image while Spotify release artwork is unavailable";
+      }else{
+        els.cover.src = "the-lantern-cover.jpg?v=1";
+        els.cover.alt = "The Lantern by Sunny ELDR cover";
       }
     }
     if(els.side){
@@ -278,7 +281,7 @@ reveals.forEach(el=>io.observe(el));
     if(els.date) els.date.textContent = latest.releaseDate || "";
     if(els.spotify && latest.spotifyUrl){
       els.spotify.href = latest.spotifyUrl;
-      els.spotify.textContent = source === "spotify" ? "Open on Spotify" : "Listen / Stream";
+      els.spotify.textContent = "Open on Spotify";
     }
     if(els.player && els.playerWrap){
       if(latest.embedUrl){
@@ -346,7 +349,15 @@ reveals.forEach(el=>io.observe(el));
   }
 
   function renderDiscography(releases){
-    if(!els.grid || !Array.isArray(releases) || !releases.length){
+    if(!els.grid) return;
+
+    if(!Array.isArray(releases) || !releases.length){
+      els.grid.innerHTML = `
+        <a class="discography-empty" href="https://open.spotify.com/artist/26RwT7kIoTnT8oT65MGS2P" target="_blank" rel="noopener noreferrer">
+          <strong>Open Sunny ELDR on Spotify</strong>
+          <span>Spotify release data is refreshing. Tap here for the full live discography. ↗</span>
+        </a>
+      `;
       setupReleaseFilters();
       return;
     }
@@ -357,10 +368,10 @@ reveals.forEach(el=>io.observe(el));
       const type = escapeHtml(releaseTypeLabel(item.type));
       const date = escapeHtml(item.releaseDate || "");
       const cover = escapeHtml(item.cover || "https://sunnyeldr.com/eldrheim-cover.png");
-      const url = escapeHtml(item.spotifyUrl || "https://open.spotify.com/artist/26RwT7kIoTnT8oT65MGS2P");
+      const url = escapeHtml(item.spotifyUrl || ("https://open.spotify.com/search/" + encodeURIComponent((item.title || "Sunny ELDR") + " Sunny ELDR")));
 
       return `
-        <a class="album-card reveal in" data-type="${rawType}" href="${url}" target="_blank" rel="noopener noreferrer">
+        <a class="album-card reveal in" data-type="${rawType}" href="${url}" target="_blank" rel="noopener noreferrer" aria-label="Open ${title} on Spotify">
           <div class="album-art">
             <img src="${cover}" alt="${title} by Sunny ELDR cover" loading="lazy">
           </div>
