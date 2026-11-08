@@ -37,7 +37,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
   loadGoogleAnalytics();
 }
 </script>
-<link rel="stylesheet" href="site.css?v=20261108-5">
+<link rel="stylesheet" href="site.css?v=20261108-6">
 </head>
 <body>
 
@@ -101,18 +101,28 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
 <section class="top-feature" aria-label="Featured release and playlist">
   <div class="w feature-grid">
     <article class="release-countdown-card glass-card reveal" data-release-at="2026-11-20T00:00:00">
-      <div class="release-card-copy">
-        <div class="kicker">New Album</div>
-        <h2>SVARNETT</h2>
-        <p class="release-by">by Sunny ELDR</p>
-        <p class="release-date">Release · 20 November 2026</p>
-        <div class="countdown-live" aria-live="polite" aria-label="Countdown to Svarnett">
-          <div><strong id="releaseDays">00</strong><span>Days</span></div>
-          <div><strong id="releaseHours">00</strong><span>Hours</span></div>
-          <div><strong id="releaseMinutes">00</strong><span>Minutes</span></div>
-          <div><strong id="releaseSeconds">00</strong><span>Seconds</span></div>
+      <div class="release-card-grid">
+        <div class="release-cover-wrap">
+          <img class="release-cover" src="svarnett-cover.webp" alt="SVARNETT album cover by Sunny ELDR">
         </div>
-        <a class="btn outline" href="https://open.spotify.com/artist/26RwT7kIoTnT8oT65MGS2P" target="_blank" rel="noopener noreferrer">Release on Spotify ↗</a>
+        <div class="release-card-copy">
+          <div class="kicker">New Album</div>
+          <h2>SVARNETT</h2>
+          <p class="release-by">by Sunny ELDR</p>
+          <p class="release-date">Release · 20 November 2026</p>
+          <div class="countdown-live" aria-live="polite" aria-label="Countdown to Svarnett">
+            <div><strong id="releaseDays">00</strong><span>Days</span></div>
+            <div><strong id="releaseHours">00</strong><span>Hours</span></div>
+            <div><strong id="releaseMinutes">00</strong><span>Minutes</span></div>
+            <div><strong id="releaseSeconds">00</strong><span>Seconds</span></div>
+          </div>
+          <div class="btn-row">
+            <a class="btn presave-btn" href="https://open.spotify.com/artist/26RwT7kIoTnT8oT65MGS2P" target="_blank" rel="noopener noreferrer">
+              <img src="https://cdn.simpleicons.org/spotify/1ED760" alt="" aria-hidden="true">
+              Pre-Save on Spotify
+            </a>
+          </div>
+        </div>
       </div>
     </article>
 
@@ -143,7 +153,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
     <div class="platform-row">
       <a href="https://open.spotify.com/artist/26RwT7kIoTnT8oT65MGS2P" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/spotify/1ED760" alt=""><span>Spotify</span><b>↗</b></a>
       <a href="https://music.apple.com/us/artist/sunny-eldr/1895655133" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/applemusic/FA243C" alt=""><span>Apple Music</span><b>↗</b></a>
-      <a href="https://music.amazon.com/artists/B0GYRBLVWJ/sunny-eldr" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/amazonmusic/25D1DA" alt=""><span>Amazon Music</span><b>↗</b></a>
+      <a href="https://music.amazon.com/artists/B0GYRBLVWJ/sunny-eldr" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/amazon/FF9900" alt=""><span>Amazon Music</span><b>↗</b></a>
       <a href="https://www.deezer.com/search/Sunny%20ELDR" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/deezer/A238FF" alt=""><span>Deezer</span><b>↗</b></a>
       <a href="https://tidal.com/search?q=Sunny%20ELDR" target="_blank" rel="noopener noreferrer"><img class="tidal-icon" src="https://cdn.simpleicons.org/tidal/FFFFFF" alt=""><span>TIDAL</span><b>↗</b></a>
       <a href="https://music.youtube.com/search?q=Sunny%20ELDR" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/youtubemusic/FF0000" alt=""><span>YouTube Music</span><b>↗</b></a>
@@ -205,6 +215,11 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
   <div class="w">
     <div class="kicker">Selected Releases</div>
     <h2 class="section-title">Discography</h2>
+    <div class="release-filter" role="tablist" aria-label="Discography filter">
+      <button class="release-filter-btn active" type="button" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="release-filter-btn" type="button" data-filter="album" role="tab" aria-selected="false">Albums</button>
+      <button class="release-filter-btn" type="button" data-filter="single" role="tab" aria-selected="false">Singles</button>
+    </div>
     <div class="discography-grid" id="liveDiscographyGrid">
       <article class="album-card reveal"><div class="album-art"><img src="eldrheim-cover.png" alt="ELDRHEIM album cover"></div><div class="album-info"><small>Album · 2026</small><h3>ELDRHEIM</h3></div></article>
       <article class="album-card reveal"><div class="album-art"><img src="hjarta-ur-eldi-cover.png" alt="HJARTA ÚR ELDI album cover"></div><div class="album-info"><small>Album · 2026</small><h3>HJARTA ÚR ELDI</h3></div></article>
@@ -253,7 +268,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent')==='accepted'){
   </div>
 </div>
 
-<script src="youtube-live.js?v=20261108-5" defer></script>
-<script src="site.js?v=20261108-5" defer></script>
+<script src="youtube-live.js?v=20261108-6" defer></script>
+<script src="site.js?v=20261108-6" defer></script>
 </body>
 </html>
