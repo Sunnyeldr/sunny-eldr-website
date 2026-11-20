@@ -2,6 +2,103 @@
 
 Stand: 20.11.2026. Format 16:9 für YouTube, Seedance 2.5. Dieser Plan baut auf dem bisherigen Produktionsstand auf (siehe `UEBERGABE.md`) und ersetzt ihn nicht.
 
+## 0. Aktuelle Vorgaben (Stand 20.11.2026, abends) – gehen allen Abschnitten darunter vor
+
+Der erste Test von S1 ist NICHT FREIGEGEBEN: künstliche Gesichter, kaum Mimik, statischer Auftritt, schlechter Lip-Sync, Mikrofone vor den Lippen, orange-brauner Farbstich, Bühne wie ein Studio.
+
+### Referenzen
+
+Pro Sängerin zwei getrennte Bilder, die der Auftraggeber liefert. Die bisherigen Sheets mit vier Ansichten werden nicht mehr verwendet. Keine Ersatzbilder erfinden.
+
+| Bezeichnung | Bild | bestimmt |
+|---|---|---|
+| @image1 | Sunny ELDR, großes Hauptporträt | Gesicht, Augen, Hautfarbe, Sommersprossen, Haare, Identität |
+| @image2 | Sunny, Outfitbild ohne Gesicht | Kleidung, Schuhe, Schmuck, Körpertattoos, Proportionen, Mikrofon |
+| @image3 | SUNRIVA, großes Hauptporträt | Identität |
+| @image4 | SUNRIVA, Outfitbild ohne Gesicht | Kleidung und sichtbare Körperdetails |
+| @video1 | schwarze MP4 des Segments (Live-Aufnahme) | Gesangsbeginn, Pausen, Emotion, Tempo, Lip-Sync |
+
+Status: Die vier Bilder liegen noch nicht vor.
+
+### Startbild S1
+
+Kamera aus dem Publikum. Vordergrund: Köpfe, Schultern, erhobene Hände. Hintergrund: große beleuchtete Outdoor-Bühne mit den senkrechten Lichtstäben, tiefblauer Dämmerungshimmel. Sunny und SUNRIVA betreten die Bühne von der Seite, mitten im Schritt, Mikrofon in der rechten Hand abgesenkt, lebendige Gesichter. Kein Studiolook, keine Posen, keine Schrift. Freigabe durch den Auftraggeber vor jeder Videogenerierung.
+
+### Seedance-Prompt S1 (bewährte kurze Struktur)
+
+```
+@image1 is Sunny ELDR.
+@image2 is Sunny's exact stage outfit.
+@image3 is SUNRIVA.
+@image4 is SUNRIVA's exact stage outfit.
+
+Keep both women exactly as shown – faces, hair, tattoos, proportions,
+jewelry and outfits unchanged.
+
+Sunny and SUNRIVA perform the song from @video1, lip-synced exactly to
+the audio. @video1 is the reference for timing, emotion and lip sync.
+Lip sync starts with the first vocal. Lyrics are for word recognition
+only. Let the model naturally determine who performs each vocal
+phrase. During instrumental passages and vocal pauses, neither woman
+performs singing lip movements.
+
+They perform live together on a huge outdoor festival stage at dusk,
+with a massive crowd in front of the stage. Both women enter the stage
+together from the side, already walking naturally and confidently
+toward the audience. The crowd welcomes them enthusiastically. They
+smile, look at each other, greet the fans and move toward the front of
+the stage. Their hair and outfits move naturally as they walk.
+
+Strong authentic live concert energy that matches the song. They use
+the stage and interact naturally with each other and with the crowd.
+Natural movement, no standing still. No artificial choreography.
+
+Each woman holds exactly one black wireless handheld microphone in her
+right hand. During vocal pauses, they naturally lower their
+microphones. The microphones must not hide their lips from the camera.
+
+CAMERA:
+Dynamic professional multi-camera live concert cinematography. The
+crowd is visible from the very first frame. Open with a spectacular
+wide shot from inside the massive cheering audience, looking toward
+the huge outdoor festival stage. Sunny and SUNRIVA enter the stage
+together, already moving naturally. Cut to a moving side camera
+following both performers as they walk toward the front of the stage.
+Cut to authentic audience reactions, raised hands, cheering fans and
+smartphones recording the show. Use energetic medium shots, natural
+tracking movements, low-angle stage cameras, emotional close-ups and
+wide shots showing the scale of the concert. The camera constantly
+finds interesting perspectives and follows the performers' natural
+movements. Keep the audience present throughout the performance. Use
+believable camera cuts that follow the rhythm and emotional energy of
+the original audio. During singing close-ups, keep the performers'
+lips clearly visible for accurate lip sync. Authentic professional
+live concert coverage, not a static music video. No long static shots.
+No endless slow zooms. No artificial camera movements. No repetitive
+camera angles.
+
+Lyrics:
+I was seven when the winter came
+You wrapped your coat around me
+Thunder rolled across the bay
+I said, Mama, I'm afraid
+
+Ultra photorealistic, natural skin texture with visible pores and fine
+imperfections, no airbrushing, no plastic look. Sharp focus on faces
+and clothing, realistic facial expressions, natural body movement,
+high detail. Shot on a full-frame cinema camera. True-to-life colors,
+natural depth of field, realistic stage lighting. No orange color
+cast. No text. No subtitles. No musicians or instruments on stage.
+```
+
+### Regeln
+
+- Nur Regie führen, nichts erzwingen. Seedance entscheidet die Performance, @video1 bestimmt den Gesang, Lyrics nur zur Worterkennung, keine feste Gesangsverteilung.
+- Die aktive Mehrkamera-Regie gilt für alle sieben Segmente. Jedes Segment bekommt denselben kurzen Aufbau mit angepasster Szene.
+- Mikrofone: je eines, rechte Hand, in Pausen abgesenkt, Lippen bleiben sichtbar.
+- Ablauf: Startbild freigeben lassen, dann nur S1 in 480p testen, stoppen, Qualitätskontrolle vorlegen.
+- Keine kostenpflichtige Generierung ohne ausdrückliche Freigabe.
+
 ## 1. Bestandsaufnahme
 
 ### Ton
