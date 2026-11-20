@@ -2,6 +2,57 @@
 
 Stand: 20.11.2026. Format 16:9 für YouTube, Seedance 2.5. Dieser Plan baut auf dem bisherigen Produktionsstand auf (siehe `UEBERGABE.md`) und ersetzt ihn nicht.
 
+## 00. Bewährtes Rezept (Stand 20.11.2026, nach Test 5) – geht allem darunter vor
+
+Test 5 von S1 ist der erste Clip, bei dem der Auftraggeber die Lippen als passend bestätigt hat. Diese Kombination ist ab jetzt der Standard:
+
+| Baustein | Festlegung |
+|---|---|
+| Bildreferenzen | genau zwei: @image1 = Sunny ELDR, @image2 = SUNRIVA. Je ein 16:9-Sheet mit großem Porträt links und Outfit ohne Gesicht rechts. Alle älteren Sheets und Einzelbilder nicht mehr verwenden. |
+| Tonvorlage | @video1 = schwarze MP4 des Segments aus der Live-Aufnahme |
+| Startbild | keines. Das Betreten der Bühne steht nur als Regie im Prompt. |
+| Ton im Clip | aus |
+| Einstellungen | Seedance 2.5, Referenzmodus, 16:9, 480p zum Testen, Bitrate hoch, kein Entwurf |
+
+Promptanfang im Wortlaut:
+
+```
+@image1 is Sunny ELDR.
+@image2 is SUNRIVA.
+
+Keep both women exactly as shown in their reference sheets. The large
+portrait on the left defines each woman's identity. The outfit on the
+right defines her complete stage clothing.
+
+@video1 contains the original song and determines all vocal timing,
+emotion and lip sync. Lyrics are for word recognition only. Seedance
+decides naturally who performs each vocal phrase.
+
+VOCAL PERFORMANCE
+Sunny ELDR and SUNRIVA perform the song together as a natural live
+concert performance. @video1 contains the original song with music and
+vocals. @video1 is the sole reference for vocal timing, emotion and
+lip sync. Let Seedance naturally determine who sings each vocal
+phrase. Do not assign individual lyrics, verses or choruses to either
+woman. Do not force vocal roles. Both performers naturally share the
+vocal performance. Lip movements must follow the actual audible vocals
+in @video1. Singing begins only when vocals are audible in the
+reference. During instrumental passages and vocal pauses, neither
+woman performs singing lip movements. Never anticipate vocals. Never
+invent words. Never continue singing after the audible vocal has
+ended. Natural interaction. Authentic live performance. No forced
+choreography. Let the audio guide the performance.
+```
+
+Danach folgen Szene, Mikrofone, CAMERA-Block, Lyrics und Realismus-Absatz wie in Abschnitt 0.
+
+Was die Tests gezeigt haben:
+
+- Test 3 (Startbild, alter Gesangsabsatz) und Test 4 (kein Startbild, alter Gesangsabsatz): Gesang begann zu früh, Lippen passten nicht.
+- Test 5 (kein Startbild, neuer VOCAL-PERFORMANCE-Block, zwei Sheets): Gesang beginnt erst bei ca. 12 s, Lippen laut Auftraggeber passend.
+- Offener Mangel in Test 5: Die Bühne war falsch, weil kein Bühnenbild angehängt war. Eine Beschreibung im Prompt reicht nicht. Vorschlag: das Bühnenbild ohne Band als dritte Bildreferenz („@image3 is the stage and venue"), Freigabe steht aus.
+- Die Mikrofone verdecken in Einstellungen mit beiden noch teilweise die Lippen.
+
 ## 0. Aktuelle Vorgaben (Stand 20.11.2026, abends) – gehen allen Abschnitten darunter vor
 
 Der erste Test von S1 ist NICHT FREIGEGEBEN: künstliche Gesichter, kaum Mimik, statischer Auftritt, schlechter Lip-Sync, Mikrofone vor den Lippen, orange-brauner Farbstich, Bühne wie ein Studio.
