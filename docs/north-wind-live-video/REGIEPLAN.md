@@ -74,21 +74,13 @@ Sieben Segmente, jedes höchstens 27,67 s, Anfang und Ende jeweils in einer Gesa
 
 Zwei Schnittpunkte liegen in kurzen Pausen von unter 1 s (bei 1:00 und 1:26). Dort ist die Überlappung besonders wichtig; diese Übergänge werden im Schnitt zusätzlich mit einem Publikumsbild abgedeckt.
 
-## 4. Wer singt (Regie-Entscheidung, bitte bestätigen)
+## 4. Gesang: Seedance entscheidet
 
-In der Aufnahme singt eine einzige Stimme. Damit die Lippen stimmen, bekommt jeder Clip genau eine klare Ansage, wer singt. Das ist eine Besetzungsangabe, keine Zeitvorgabe: Wann gesungen wird, bestimmt allein der Ton.
+In der Aufnahme singt eine Stimme. Sunny und SUNRIVA teilen sich den Song als gemeinsame Performance. Es gibt **keine feste Zuordnung** von Passagen zu einer Sängerin, weder im Plan noch in den Prompts. Seedance bestimmt anhand der Tonvorlage selbst, wer welche Passage singt. Das ist der bewährte Ablauf aus den kurzen Clips.
 
-| Segment | Singt | Die andere |
-|---|---|---|
-| S1 Strophe 1 | SUNRIVA | Sunny hört zu, Lippen ruhig |
-| S2 Refrain 1 | beide gemeinsam | |
-| S3 Bridge und Strophe 2 | Sunny | SUNRIVA hört zu |
-| S4 Strophe 3 | SUNRIVA | Sunny geht neben ihr |
-| S5 Bruch | SUNRIVA | Sunny nimmt ihre Hand („grabs my hand") |
-| S6 Schlussrefrain | beide gemeinsam | |
-| S7 Outro | SUNRIVA | Sunny sieht sie an |
+Grundsatz: nur Regie führen, nichts erzwingen. Die Regie legt Kamera, Bildausschnitt, Bühnenposition, Licht, Publikum, Stimmung und Übergänge fest. Sie legt nicht fest, wer welche Zeile singt, wann Wörter beginnen oder wie sich ein Mund bewegt.
 
-Alternative, falls gewünscht: in jedem Clip beide gemeinsam singen lassen. Das ist einfacher, aber zwei gleichzeitig lippensynchrone Gesichter sind für Seedance schwerer als eines.
+Passt ein Clip sichtbar nicht zum Ton, wird er geprüft und neu erzeugt. Eine erzwungene Rollenverteilung ist keine Standardlösung für Lip-Sync-Fehler.
 
 ## 5. Dramaturgie und Schauplätze
 
@@ -98,7 +90,7 @@ Der Auftritt wandert einmal von hinten nach vorn durch den Veranstaltungsort. Da
 |---|---|---|
 | Auftakt, Strophe 1 | Hauptbühne, Mitte | ruhig, gespannt, Begrüßung |
 | Refrain 1 | Hauptbühne, vordere Kante | erste große Energie |
-| Bridge, Strophe 2 | Hauptbühne, Sunny im Fokus | kraftvoll, erzählend |
+| Bridge, Strophe 2 | Hauptbühne, beide nah | kraftvoll, erzählend |
 | Strophe 3 | Laufsteg, beide gehen in die Menge | Bewegung, Nähe zum Publikum |
 | Bruch | Plattform in der Menge | still, intim, Handylichter |
 | Schlussrefrain | Plattform, Publikum ringsum | Höhepunkt |
@@ -107,7 +99,7 @@ Der Auftritt wandert einmal von hinten nach vorn durch den Veranstaltungsort. Da
 
 ## 6. Schnittplan
 
-Grundregeln aus dem Referenzvideo: keine Einstellung länger als 5 Sekunden, etwa die Hälfte der Zeit Sängerinnen, die andere Hälfte Publikum und Totalen, Schnitte auf Phrasenenden und Taktschläge. Nahe Gesangsbilder nur dort, wo die Lippen geprüft und freigegeben sind; alles andere wird von der Seite, von hinten, in der Totale oder mit Publikum gezeigt.
+Grundregeln aus dem Referenzvideo: keine Einstellung länger als 5 Sekunden, etwa die Hälfte der Zeit Sängerinnen, die andere Hälfte Publikum und Totalen, Schnitte auf Phrasenenden und Taktschläge. Welche Sängerin in einer Nahaufnahme zu sehen ist, ergibt sich aus dem erzeugten Clip. Nahe Gesangsbilder nur dort, wo die Lippen geprüft und freigegeben sind; alles andere wird von der Seite, von hinten, in der Totale oder mit Publikum gezeigt.
 
 | Zeit | Bild | Quelle |
 |---|---|---|
@@ -115,9 +107,9 @@ Grundregeln aus dem Referenzvideo: keine Einstellung länger als 5 Sekunden, etw
 | 0:04 – 0:09 | Beide kommen zur Bühnenmitte, begrüßen das Publikum | S1 |
 | 0:09 – 0:11 | Jubelnde Jungs | Publikum |
 | 0:11 – 0:14 | Halbnah beide, Blick zueinander | S1 |
-| 0:14 – 0:19 | SUNRIVA nah, singt | S1 |
+| 0:14 – 0:19 | Nahaufnahme, Gesang | S1 |
 | 0:19 – 0:21 | Frau mit geschlossenen Augen | Publikum |
-| 0:21 – 0:27 | SUNRIVA singt, Sunny im Anschnitt | S1 |
+| 0:21 – 0:27 | Beide halbnah, Gesang | S1 |
 | 0:27 – 0:31 | Blick von der Bühne ins Publikum | Totale T2 |
 | 0:31 – 0:35 | Handys, Herzschilder | Publikum |
 | 0:35 – 0:40 | Beide gehen zur Bühnenkante, singen | S2 |
@@ -127,21 +119,21 @@ Grundregeln aus dem Referenzvideo: keine Einstellung länger als 5 Sekunden, etw
 | 0:50 – 0:55 | Beide von der Seite, Geste ins Publikum | S2 |
 | 0:55 – 0:57 | Vater mit Tochter | Publikum |
 | 0:57 – 1:01 | Beide nah, Refrain-Ende | S2 |
-| 1:01 – 1:06 | Sunny nah, Bridge | S3 |
+| 1:01 – 1:06 | Nahaufnahme, Bridge | S3 |
 | 1:06 – 1:08 | Jubelnde Jungs oder Freunde | Publikum |
-| 1:08 – 1:13 | Sunny, kraftvolle Geste | S3 |
+| 1:08 – 1:13 | Beide von der Seite, kraftvoll | S3 |
 | 1:13 – 1:15 | Lichtermeer | Publikum |
-| 1:15 – 1:20 | Sunny nah, Strophe 2 | S3 |
-| 1:20 – 1:22 | SUNRIVA hört zu, lächelt | S3 |
-| 1:22 – 1:27 | Sunny singt, Blick zu SUNRIVA | S3 |
+| 1:15 – 1:20 | Nahaufnahme, Strophe 2 | S3 |
+| 1:20 – 1:22 | Blick zueinander, Lächeln | S3 |
+| 1:22 – 1:27 | Beide halbnah, Gesang | S3 |
 | 1:27 – 1:32 | Beide betreten den Laufsteg | S4 |
 | 1:32 – 1:34 | Hände am Gitter, Handys | Publikum |
-| 1:34 – 1:39 | SUNRIVA singt im Gehen, Menge links und rechts | S4 |
+| 1:34 – 1:39 | Beide im Gehen, Menge links und rechts | S4 |
 | 1:39 – 1:41 | Totale von der Seite, Laufsteg | Totale T3 |
 | 1:41 – 1:46 | Beide erreichen die Plattform | S4 |
-| 1:46 – 1:51 | SUNRIVA nah, leise | S5 |
+| 1:46 – 1:51 | Nahaufnahme, leise | S5 |
 | 1:51 – 1:53 | Mutter und Tochter am Gitter | Publikum |
-| 1:53 – 1:57 | Sunny nimmt SUNRIVAs Hand | S5 |
+| 1:53 – 1:57 | Beide nah beieinander, ruhig | S5 |
 | 1:57 – 2:02 | Beide nah, Schlussrefrain setzt ein | S6 |
 | 2:02 – 2:04 | Totale, Lichtermeer um die Plattform | Totale T4 |
 | 2:04 – 2:09 | Beide singen, drehen sich zur Menge | S6 |
@@ -149,16 +141,16 @@ Grundregeln aus dem Referenzvideo: keine Einstellung länger als 5 Sekunden, etw
 | 2:11 – 2:16 | Beide von der Seite, Faust oben | S6 |
 | 2:16 – 2:18 | Vater mit Tochter | Publikum |
 | 2:18 – 2:24 | Beide nah, letzte Refrainzeile | S6 |
-| 2:24 – 2:29 | SUNRIVA nah, leise | S7 |
+| 2:24 – 2:29 | Nahaufnahme, leise | S7 |
 | 2:29 – 2:31 | Frau mit geschlossenen Augen | Publikum |
-| 2:31 – 2:36 | SUNRIVA singt, Sunny sieht sie an | S7 |
+| 2:31 – 2:36 | Beide nah, Gesang | S7 |
 | 2:36 – 2:38 | Mutter und Tochter | Publikum |
-| 2:38 – 2:43 | SUNRIVA, letzter Ton, Blick nach oben | S7 |
+| 2:38 – 2:43 | Letzter Ton, Blick zueinander | S7 |
 | 2:43 – 2:48 | Totale, Jubel, beide heben die Hände | Totale T5 |
 
 ## 7. Seedance-Prompts
 
-Jeder Gesangsclip besteht aus vier Blöcken: Rollen, Szene (pro Clip verschieden), feste Regeln, Lyrics. Anhänge immer: Startbild, Sheet SUNRIVA, Sheet Sunny, großes Bühnenbild, schwarze MP4 des Segments.
+Jeder Gesangsclip besteht aus vier Blöcken: Rollen, Szene (pro Clip verschieden), feste Regeln, Lyrics. Anhänge immer: Startbild, Sheet SUNRIVA, Sheet Sunny, großes Bühnenbild, schwarze MP4 des Segments. Kein Prompt enthält eine Zuordnung von Gesangspassagen.
 
 ### Fester Kopf (alle Clips)
 
@@ -175,21 +167,22 @@ reference: ignore its black image, only its sound matters.
 ### Feste Regeln (alle Clips)
 
 ```
-LIP SYNC — HIGHEST PRIORITY
-The singer performs the original vocals from @Video1. Her lip movements
-follow every audible word, syllable, breath and sustained vowel of the
-recording. @Video1 alone determines when singing starts, pauses and
-ends. If the voice is audible in the first frame, she is already
-singing in the first frame. She keeps singing until the last audible
-syllable. No singing-like lip movement while no voice is audible.
-Never invent words.
+VOCAL PERFORMANCE
+Both women perform this song together naturally on stage. Let the
+original audio in @Video1 guide the entire vocal performance. Let the
+model determine the natural vocal performance from the reference
+audio. Do not enforce individual vocal lines on either performer.
+Prioritize accurate lip synchronization with the original recording:
+lip movements match the audible singing, phrases are sung to their
+last syllable, and there is no singing-like lip movement while no
+voice is audible. Never invent words.
 
-PERFORMANCE
-A real live concert, natural and unforced. Warm, confident performers
-who enjoy the stage and their audience: smiles, eye contact with each
-other and with the crowd, natural movement with the music. No
-choreography, no exaggerated acting. Each woman holds exactly one black
-wireless handheld microphone in her right hand, the left hand is free.
+LIVE PERFORMANCE
+A real live concert, natural and unforced. Two artists sharing a stage:
+natural interaction, authentic singing gestures, spontaneous eye
+contact, smiles, believable live concert behavior. No choreography,
+no exaggerated acting. Each woman holds exactly one black wireless
+handheld microphone in her right hand, the left hand is free.
 No microphone stands, no musicians, no instruments on stage.
 
 LOOK
@@ -206,13 +199,12 @@ No text, no subtitles.
 **S1 – Auftakt und Strophe 1** (Startbild: beide auf der leeren Hauptbühne)
 ```
 SCENE
-Main stage at dusk, a huge crowd in front. The two women arrive at
-center stage and greet the cheering crowd. SUNRIVA is the singer in
-this scene. Sunny stands beside her, listens and reacts, lips closed.
-Quiet, expectant mood.
+Main stage at dusk, a huge crowd in front. The two women stand together
+at center stage and greet the cheering crowd. Quiet, expectant mood,
+the beginning of the show.
 CAMERA
-Multi-camera concert coverage: a medium two-shot from the front, then
-a close-up of SUNRIVA, one angle from the side. Calm, steady cameras.
+Multi-camera concert coverage: a medium two-shot from the front,
+a close-up, one angle from the side. Calm, steady cameras.
 LYRICS — WORD RECOGNITION ONLY
 I was seven when the winter came / You wrapped your coat around me /
 Thunder rolled across the bay / I said, Mama, I'm afraid
@@ -222,7 +214,7 @@ Thunder rolled across the bay / I said, Mama, I'm afraid
 ```
 SCENE
 Main stage, front edge, the crowd right below them with raised hands.
-Both women sing this scene together. First big energy of the show.
+The two women perform side by side. First big energy of the show.
 CAMERA
 Low angle from the front row, a close two-shot, a side angle along the
 stage edge with the crowd in frame. Cuts follow the musical phrases.
@@ -233,14 +225,14 @@ Keep that fire in your eyes / Hold the line, break on through /
 There's a fire inside of you
 ```
 
-**S3 – Bridge und Strophe 2** (Startbild: Sunny nah auf der Hauptbühne, SUNRIVA unscharf dahinter)
+**S3 – Bridge und Strophe 2** (Startbild: beide nah auf der Hauptbühne, leicht versetzt)
 ```
 SCENE
-Main stage. Sunny is the singer in this scene, strong and direct.
-SUNRIVA stands a step behind her, listens and smiles, lips closed.
+Main stage. The two women stand close, slightly staggered, strong and
+direct. They react to each other and to the crowd.
 CAMERA
-Close-up of Sunny, a medium shot from the side, one shot from behind
-her toward the crowd. Mostly calm cameras, the emotion is in her face.
+Close-ups, a medium shot from the side, one shot from behind them
+toward the crowd. Mostly calm cameras, the emotion is in the faces.
 LYRICS — WORD RECOGNITION ONLY
 You may bleed, you may cry / But never let your fire die / At eighteen
 I left our home / You kissed my head and let me go / You said, take my
@@ -251,9 +243,7 @@ fire down every road
 ```
 SCENE
 The runway into the crowd. The two women walk side by side toward the
-round platform, fans reaching out along the barriers. SUNRIVA is the
-singer in this scene. Sunny walks beside her and greets fans, lips
-closed.
+round platform, fans reaching out along the barriers on both sides.
 CAMERA
 A tracking shot in front of them, a side angle from inside the crowd,
 a wide shot from the stage behind them.
@@ -267,11 +257,10 @@ arrived
 ```
 SCENE
 The small round platform in the middle of the crowd, phone lights all
-around. Very quiet and intimate. SUNRIVA is the singer in this scene.
-Sunny stands close, lips closed, and takes SUNRIVA's free hand.
+around. Very quiet and intimate. The two women stand close together.
 CAMERA
-A still close-up of SUNRIVA, then a calm two-shot. No camera movement
-beyond a slow drift.
+A still close-up, then a calm two-shot. No camera movement beyond a
+slow drift.
 LYRICS — WORD RECOGNITION ONLY
 Now I'm seventy by that same cold sea / My granddaughter stands with
 me / She hears the thunder, grabs my hand / I see myself and understand
@@ -281,8 +270,7 @@ me / She hears the thunder, grabs my hand / I see myself and understand
 ```
 SCENE
 The round platform, the crowd on all sides with raised hands and phone
-lights, the lit main stage far behind. Both women sing this scene
-together. The peak of the show.
+lights, the lit main stage far behind. The peak of the show.
 CAMERA
 A close two-shot, an angle from inside the crowd looking up at them,
 a wide shot with the whole crowd, a side angle. Cuts follow the
@@ -296,12 +284,10 @@ the line, break on through / There's a fire inside of you
 **S7 – Outro** (Startbild: beide nah auf der Plattform)
 ```
 SCENE
-The platform, the crowd quiet and listening. SUNRIVA is the singer in
-this scene, soft and close. Sunny watches her, lips closed, moved. On
-the last word they look at each other and smile.
+The platform, the crowd quiet and listening. Soft and close. At the
+end the two women look at each other and smile.
 CAMERA
-A still close-up of SUNRIVA, a calm two-shot, one shot of Sunny
-listening. Almost no camera movement.
+A still close-up, a calm two-shot. Almost no camera movement.
 LYRICS — WORD RECOGNITION ONLY
 She asks, who taught you so? / I watch the northern water glow /
 My mama did / Long ago
@@ -318,7 +304,7 @@ My mama did / Long ago
 ### Startbilder (mit ChatGPT, auf Basis der Sheets und des Bühnenbilds)
 
 1. Beide an der Bühnenkante, von unten aus der ersten Reihe (S2)
-2. Sunny nah auf der Hauptbühne, SUNRIVA unscharf dahinter (S3)
+2. Beide nah auf der Hauptbühne, leicht versetzt (S3)
 3. Beide am Anfang des Laufstegs, Menge links und rechts (S4)
 4. Beide nah auf der Plattform, Brustbild (S5, S7)
 5. Totale von hinten über die Menge, beide klein auf der Bühne (T1)
@@ -346,7 +332,7 @@ Jeder Clip wird nach der Erzeugung mit der Live-Tonspur unterlegt und geprüft:
 | Nr. | Prüfpunkt | Wie |
 |---|---|---|
 | 1 | Lip-Sync | Clip mit Originalton ansehen; Mundbewegung gegen die gemessenen Gesangsphrasen vergleichen |
-| 2 | Richtige Sängerin | laut Tabelle in Abschnitt 4 |
+| 2 | Gesangsbild passt zum Ton | wer im Bild singt, bewegt die Lippen passend; wer nicht singt, hält sie ruhig |
 | 3 | Gesangsbeginn | Mund öffnet mit der ersten Silbe, nicht später |
 | 4 | Gesangsende | Mund bleibt bis zur letzten Silbe offen |
 | 5 | Mikrofone | je eines, rechte Hand, kein Wechsel |
@@ -360,10 +346,9 @@ Ergebnis pro Clip: FREIGEGEBEN, NUR TEILWEISE (mit Angabe der brauchbaren Sekund
 
 ## 11. Reihenfolge der Arbeit
 
-1. Besetzung in Abschnitt 4 bestätigen.
-2. Fehlende Startbilder erstellen.
-3. S1 in 480p erzeugen, prüfen, Prompt bei Bedarf nachschärfen.
-4. S2 bis S7 in 480p erzeugen und prüfen.
-5. Publikum und Totalen erzeugen.
-6. Rohschnitt nach Abschnitt 6 auf die Live-Tonspur.
-7. Freigegebene Gesangsclips in 720p neu erzeugen, Feinschnitt, Ausblendung am Ende.
+1. Fehlende Startbilder erstellen.
+2. S1 in 480p erzeugen, prüfen, Prompt bei Bedarf nachschärfen.
+3. S2 bis S7 in 480p erzeugen und prüfen.
+4. Publikum und Totalen erzeugen.
+5. Rohschnitt nach Abschnitt 6 auf die Live-Tonspur.
+6. Freigegebene Gesangsclips in 720p neu erzeugen, Feinschnitt, Ausblendung am Ende.
