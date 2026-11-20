@@ -2,6 +2,8 @@
 
 Stand: 19.11.2026. Diese Datei fasst den Projektstand zusammen, damit ein anderer Assistent (z. B. Codex oder ChatGPT) ohne Vorwissen weiterarbeiten kann.
 
+> **Aktualisiert am 20.11.2026:** Der verbindliche Plan steht jetzt in `REGIEPLAN.md`. Änderungen gegenüber dieser Datei: Die Band ist gestrichen (keine Trommler, keine Streicherin), als Personenreferenz dienen zwei Sheets statt der Outfit-Einzelbilder, und die Tonvorlagen sind sieben Segmente an Gesangspausen statt sechs fester Abschnitte.
+
 ## 1. Ziel
 
 Ein YouTube-Musikvideo in 16:9 zum Song „The North Wind Calls", das sich wie ein echter Live-Auftritt anfühlt. Auf der Bühne stehen die zwei Sängerinnen SUNRIVA (blond) und Sunny (dunkelhaarig) mit einer dreiköpfigen Band. Vorbild ist ein Konzertvideo mit schnellem Wechsel zwischen Sängerin und Publikum (56 Einstellungen in 2:26, im Schnitt alle 2,6 Sekunden, etwa die Hälfte Publikum und Totalen).
