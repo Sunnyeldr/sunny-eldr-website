@@ -10,8 +10,12 @@ const catalog = document.querySelector('#catalog');
 const videosGrid = document.querySelector('#videos-grid');
 const filters = [...document.querySelectorAll('[data-filter]')];
 const pageButtons = [...document.querySelectorAll('[data-scroll]')];
-const playlistLoad = document.querySelector('#playlist-load');
-const playlistFrame = document.querySelector('#playlist-frame');
+const appleLinks = [...document.querySelectorAll('[data-apple-link]')];
+const appleAlbums = new Map([
+  ['0SouVK132cmUKeOB9FQ3DI', 'svarnatt/6830397516'],
+  ['0jZFHgSZ7W9m531RAfL4jZ', 'havets-r%C3%B8st-live-single/6839350628'],
+]);
+const playerButtons = [...document.querySelectorAll('[data-player]')];
 const privacy = document.querySelector('#privacy');
 const isOfficialHost = /^(?:www\.)?sunnyeldr\.com$/.test(location.hostname);
 const analyticsKey = 'sunnyAnalyticsConsent';
@@ -50,6 +54,11 @@ function translate(en, de, is) {
   return {en, de, is}[root.lang];
 }
 
+function appleStorefront(url) {
+  const store = translate('us', 'de', 'is');
+  return url.replace(/(\.apple\.com)\/(?:us|de|is)\//, '$1/' + store + '/');
+}
+
 function menuState(open) {
   menuToggle.setAttribute('aria-expanded', String(open));
   menu.classList.toggle('open', open);
@@ -85,7 +94,8 @@ function setLanguage(lang) {
   for (const element of localized) element.textContent = element.dataset[lang];
   for (const element of localizedLabels) element.setAttribute('aria-label', element.dataset[labelKey]);
   for (const option of languageOptions) option.setAttribute('aria-pressed', String(option.dataset.language === lang));
-  labelPlaylist();
+  for (const link of appleLinks) link.href = appleStorefront(link.href);
+  for (const button of playerButtons) labelPlayer(button);
   renderLatest();
   renderSocial();
   renderReleases();
@@ -133,6 +143,11 @@ function renderLatest() {
   document.querySelector('#latest-heading').textContent = latest.title;
   document.querySelector('#latest-meta').textContent = releaseMeta(latest);
   document.querySelector('#latest-url').href = latest.spotifyUrl;
+  const appleLink = document.querySelector('#latest-apple-url');
+  const spotifyReleaseId = new URL(latest.spotifyUrl).pathname.split('/').pop();
+  const appleAlbum = appleAlbums.get(spotifyReleaseId);
+  appleLink.hidden = !appleAlbum;
+  if (appleAlbum) appleLink.href = appleStorefront('https://music.apple.com/us/album/' + appleAlbum);
 }
 
 function renderReleases() {
@@ -221,27 +236,44 @@ function renderSocial() {
   }
 }
 
-function labelPlaylist() {
-  playlistLoad.textContent = playlistFrame.hidden
-    ? translate('Load player', 'Player laden', 'Hlaða spilara')
-    : translate('Hide player', 'Player schließen', 'Fela spilara');
-  const iframe = playlistFrame.querySelector('iframe');
-  if (iframe) iframe.title = translate('Sunny ELDR — Spotify playlist', 'Sunny ELDR — Spotify-Playlist', 'Sunny ELDR — Spotify-spilunarlisti');
+function labelPlayer(button) {
+  const player = document.getElementById(button.getAttribute('aria-controls'));
+  const isApple = button.dataset.player === 'apple';
+  const iframe = player.querySelector('iframe');
+  button.setAttribute('aria-expanded', String(!player.hidden));
+  if (isApple) {
+    button.textContent = player.hidden
+      ? translate('Load Apple Music preview', 'Hörprobe laden', 'Hlaða sýnishorni')
+      : translate('Hide Apple Music preview', 'Hörprobe schließen', 'Fela sýnishorn');
+    if (iframe) iframe.title = translate('SVARNETT on Apple Music', 'SVARNETT auf Apple Music', 'SVARNETT á Apple Music');
+  } else {
+    button.textContent = player.hidden
+      ? translate('Load Spotify player', 'Player laden', 'Hlaða spilara')
+      : translate('Hide Spotify player', 'Player schließen', 'Fela spilara');
+    if (iframe) iframe.title = translate('Sunny ELDR — Spotify playlist', 'Sunny ELDR — Spotify-Playlist', 'Sunny ELDR — Spotify-spilunarlisti');
+  }
 }
 
-playlistLoad.addEventListener('click', () => {
-  if (playlistFrame.hidden) {
-    const iframe = make('iframe');
-    iframe.src = 'https://open.spotify.com/embed/playlist/1oTYaLwhr4EmyLy8Bd6v6C?theme=0';
-    iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
-    playlistFrame.append(iframe);
-  } else {
-    playlistFrame.replaceChildren();
-  }
-  playlistFrame.hidden = !playlistFrame.hidden;
-  playlistLoad.setAttribute('aria-expanded', String(!playlistFrame.hidden));
-  labelPlaylist();
-});
+for (const button of playerButtons) {
+  const player = document.getElementById(button.getAttribute('aria-controls'));
+  button.addEventListener('click', () => {
+    if (player.hidden) {
+      const iframe = make('iframe');
+      if (button.dataset.player === 'apple') {
+        iframe.src = appleStorefront('https://embed.music.apple.com/us/album/svarnatt/6830397516');
+        iframe.allow = 'autoplay; encrypted-media; fullscreen';
+      } else {
+        iframe.src = 'https://open.spotify.com/embed/playlist/1oTYaLwhr4EmyLy8Bd6v6C?theme=0';
+        iframe.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+      }
+      player.append(iframe);
+    } else {
+      player.replaceChildren();
+    }
+    player.hidden = !player.hidden;
+    labelPlayer(button);
+  });
+}
 
 window.dataLayer = window.dataLayer || [];
 function gtag() { window.dataLayer.push(arguments); }
