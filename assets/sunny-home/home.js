@@ -254,6 +254,64 @@ function labelPlayer(button) {
   }
 }
 
+function initScrollEffects() {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reducedMotion.matches) return;
+
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(entries => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    }, {rootMargin:'0px 0px -22px'});
+
+    function reveal(element, index = 0) {
+      if (element.getBoundingClientRect().top < window.innerHeight) return;
+      element.style.setProperty('--reveal-delay', Math.min(index * 48, 144) + 'ms');
+      element.classList.add('scroll-reveal');
+      observer.observe(element);
+    }
+
+    for (const element of document.querySelectorAll('.section-head, #videos-grid, #catalog, .about-panel, .footer-inner')) {
+      reveal(element);
+    }
+    for (const group of document.querySelectorAll('.lead, .listen-grid, .info-columns, .platform-grid')) {
+      Array.from(group.children).forEach(reveal);
+    }
+  }
+
+  const hero = document.getElementById('home');
+  let heroHeight = hero.offsetHeight;
+  let lastProgress = -1;
+  let frame = 0;
+
+  function moveHero() {
+    frame = 0;
+    if (reducedMotion.matches || !heroHeight) return;
+    const progress = Math.min(Math.max(window.scrollY, 0) / heroHeight, 1);
+    if (progress === lastProgress) return;
+    lastProgress = progress;
+    hero.style.setProperty('--hero-shift', (progress * 25).toFixed(2) + 'px');
+    hero.style.setProperty('--hero-scale', (1 + progress * .09).toFixed(4));
+  }
+
+  function queueHero() {
+    if (!frame && (lastProgress !== 1 || window.scrollY < heroHeight)) {
+      frame = window.requestAnimationFrame(moveHero);
+    }
+  }
+
+  window.addEventListener('scroll', queueHero, {passive:true});
+  window.addEventListener('resize', () => {
+    heroHeight = hero.offsetHeight;
+    queueHero();
+  }, {passive:true});
+  reducedMotion.addEventListener('change', queueHero);
+  queueHero();
+}
+
 for (const button of playerButtons) {
   const player = document.getElementById(button.getAttribute('aria-controls'));
   button.addEventListener('click', () => {
@@ -397,6 +455,7 @@ setTheme(readPreference(themeKey));
 const savedLanguage = readPreference(languageKey);
 setLanguage(['en','de','is'].includes(savedLanguage) ? savedLanguage : 'en');
 renderVideos(snapshot.videos);
+initScrollEffects();
 document.getElementById('year').textContent = new Date().getFullYear();
 if (analyticsConsent === 'accepted') applyAnalyticsConsent();
 if (!analyticsConsent) privacy.showModal();
