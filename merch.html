@@ -87,7 +87,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
 }
 </script>
 <link rel="stylesheet" href="site.css?v=20261108-19">
-<link rel="stylesheet" href="merch.css?v=20261110-3">
+<link rel="stylesheet" href="merch.css?v=20261127-1">
 </head>
 <body class="merch-page">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -124,8 +124,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
         <h1 id="merchHeroTitle">WEAR<br>THE<br><em>NORTH</em><b>.</b></h1>
         <p>Official Sunny ELDR merchandise. Dark Nordic streetwear created for those who refuse to stay silent.</p>
         <div class="btn-row">
-          <a class="btn primary" href="https://eldr-sthetic.myspreadshop.de/" target="_blank" rel="noopener noreferrer">Buy now</a>
-          <a class="btn" href="#collection">Explore the collection ↓</a>
+          <a class="btn primary" href="#collection" data-merch-collection>Shop the collection ↓</a>
         </div>
       </div>
       <div class="merch-hero-index" aria-hidden="true"><span>01 / FIRST DROP</span><i></i><span>BREAK THE SILENCE</span></div>
@@ -168,11 +167,13 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
           <p class="merch-description">Premium oversized organic cotton tee in mottled anthracite. A small ELDR rune sits on the left chest, with Sunny ELDR’s ink-and-paint portrait and BREAK THE SILENCE across the back.</p>
           <p class="merch-manifesto">Streetwear first. Artist merchandise second.</p>
           <form data-sunny-checkout="break-the-silence" hidden>
-            <p class="merch-purchase-note"><label for="break-the-silence-size">Size</label>
+            <div class="merch-size-block">
+              <label for="break-the-silence-size">Size</label>
               <select id="break-the-silence-size" name="size" required>
                 <option value="" disabled selected>Choose size</option>
-              </select></p>
-            <button type="submit" class="merch-buy">Go to checkout</button>
+              </select>
+            </div>
+            <button type="submit" class="merch-buy" disabled>Go to checkout</button>
             <p class="merch-purchase-note" role="status"></p>
           </form>
           <div>
@@ -215,11 +216,13 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
           <p class="merch-description">Black heavyweight oversized pullover hoodie with a small ELDR chest logo, an Æ mark on the left sleeve, and Sunny ELDR’s cream STILL HERE portrait across the back.</p>
           <p class="merch-manifesto">Monochrome. Quiet from the front, loud from behind.</p>
           <form data-sunny-checkout="still-here" hidden>
-            <p class="merch-purchase-note"><label for="still-here-size">Size</label>
+            <div class="merch-size-block">
+              <label for="still-here-size">Size</label>
               <select id="still-here-size" name="size" required>
                 <option value="" disabled selected>Choose size</option>
-              </select></p>
-            <button type="submit" class="merch-buy">Go to checkout</button>
+              </select>
+            </div>
+            <button type="submit" class="merch-buy" disabled>Go to checkout</button>
             <p class="merch-purchase-note" role="status"></p>
           </form>
           <div>
@@ -315,8 +318,14 @@ document.querySelectorAll(".merch-product").forEach((product) => {
 <script>
 (() => {
   const endpoint = "https://sunny-eldr-merch-checkout.sash-kelch.workers.dev";
-  const isGerman = () => document.documentElement.lang === "de";
-  const copy = (en, de) => isGerman() ? de : en;
+  const copy = (en, de) => document.documentElement.lang === "de" ? de : en;
+  const collectionLink = document.querySelector("[data-merch-collection]");
+  const translateCollectionLink = () => {
+    collectionLink.textContent = copy("Shop the collection ↓", "Merch auswählen ↓");
+  };
+  translateCollectionLink();
+  window.addEventListener("sunny:languagechange", translateCollectionLink);
+
   document.querySelectorAll("[data-sunny-checkout]").forEach(async (form) => {
     const product = form.dataset.sunnyCheckout;
     const size = form.elements.size;
@@ -324,53 +333,76 @@ document.querySelectorAll(".merch-product").forEach((product) => {
     const status = form.querySelector("[role=status]");
     const fallback = form.nextElementSibling;
     const placeholder = size.firstElementChild;
-    const refreshCopy = () => {
-      form.querySelector("label").textContent = copy("Size", "Größe");
-      placeholder.textContent = copy("Choose size", "Größe wählen");
-      if (!submit.disabled) submit.textContent = copy("Go to checkout", "Zur Kasse");
-    };
+    const sizeBlock = size.closest(".merch-size-block");
+    let sizes;
     try {
       const query = new URLSearchParams({ product });
       const response = await fetch(endpoint + "/sizes?" + query, { signal: AbortSignal.timeout(7500) });
       if (!response.ok) return;
-      const { sizes } = await response.json();
-      if (!Array.isArray(sizes) || !sizes.length) return;
+      ({ sizes } = await response.json());
+      if (!Array.isArray(sizes)) return;
       for (const option of sizes) {
         if (!/^\d{1,8}$/.test(option.id) || typeof option.name !== "string") continue;
         size.add(new Option(option.name, option.id));
       }
-      if (size.options.length < 2) return;
-      fallback.hidden = true;
-      form.hidden = false;
-      refreshCopy();
-      window.addEventListener("sunny:languagechange", refreshCopy);
+      if (sizes.length && size.options.length < 2) return;
     } catch {
       return;
     }
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      if (!size.value || submit.disabled) return;
-      submit.disabled = true;
-      submit.textContent = copy("Opening checkout…", "Kasse wird geöffnet …");
-      status.textContent = "";
-      try {
-        const query = new URLSearchParams({ product, size: size.value });
-        const response = await fetch(endpoint + "/checkout?" + query, {
-          method: "POST", signal: AbortSignal.timeout(18000)
-        });
-        if (!response.ok) throw new Error("Checkout unavailable");
-        const result = await response.json();
-        const target = new URL(result.url);
-        if (target.origin !== "https://checkout.spreadshirt.de") throw new Error("Invalid checkout");
-        window.location.assign(target.href);
-      } catch {
+
+    const soldOut = sizes.length === 0;
+    let opening = false;
+    let failed = false;
+    const refreshCopy = () => {
+      form.querySelector("label").textContent = copy("Size", "Größe");
+      placeholder.textContent = copy("Choose size", "Größe wählen");
+      submit.disabled = opening || !size.value;
+      submit.textContent = opening
+        ? copy("Opening checkout…", "Kasse wird geöffnet …")
+        : copy("Go to checkout", "Zur Kasse");
+      if (soldOut) {
+        status.textContent = copy("Currently sold out.", "Aktuell ausverkauft.");
+      } else if (failed) {
         status.textContent = copy(
           "Direct checkout is temporarily unavailable. You can buy this item in Spreadshop.",
           "Die direkte Kasse ist gerade nicht erreichbar. Du kannst den Artikel im Spreadshop kaufen."
         );
+      } else {
+        status.textContent = "";
+      }
+    };
+    fallback.hidden = true;
+    sizeBlock.hidden = soldOut;
+    submit.hidden = soldOut;
+    form.hidden = false;
+    refreshCopy();
+    window.addEventListener("sunny:languagechange", refreshCopy);
+    if (soldOut) return;
+
+    size.addEventListener("change", refreshCopy);
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (!size.value || submit.disabled) return;
+      opening = true;
+      failed = false;
+      refreshCopy();
+      try {
+        const query = new URLSearchParams({ product, size: size.value });
+        const response = await fetch(endpoint + "/checkout?" + query, {
+          method: "POST", signal: AbortSignal.timeout(22000)
+        });
+        if (!response.ok) throw new Error("Checkout unavailable");
+        const result = await response.json();
+        const target = new URL(result.url);
+        if (target.origin !== "https://eldr-sthetic.myspreadshop.de" || target.pathname !== "/checkout/") {
+          throw new Error("Invalid checkout");
+        }
+        window.location.assign(target.href);
+      } catch {
+        failed = true;
         fallback.hidden = false;
       } finally {
-        submit.disabled = false;
+        opening = false;
         refreshCopy();
       }
     });
