@@ -87,7 +87,7 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
 }
 </script>
 <link rel="stylesheet" href="site.css?v=20261108-19">
-<link rel="stylesheet" href="merch.css?v=20261127-1">
+<link rel="stylesheet" href="merch.css?v=20261127-cards">
 </head>
 <body class="merch-page">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -112,146 +112,79 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
 </nav>
 
 <main id="main" tabindex="-1">
-  <section class="merch-hero" aria-labelledby="merchHeroTitle">
-    <div class="merch-hero-art" aria-hidden="true">
-      <span class="merch-rune">E</span>
-      <span class="merch-orbit"></span>
-      <span class="merch-flare"></span>
-    </div>
-    <div class="w merch-hero-layout">
-      <div class="merch-hero-copy reveal in">
-        <p class="merch-eyebrow"><span></span>SUNNY ELDR × ELDR ÆSTHETIC</p>
-        <h1 id="merchHeroTitle">WEAR<br>THE<br><em>NORTH</em><b>.</b></h1>
-        <p>Official Sunny ELDR merchandise. Dark Nordic streetwear created for those who refuse to stay silent.</p>
-        <div class="btn-row">
-          <a class="btn primary" href="#collection" data-merch-collection>Shop the collection ↓</a>
-        </div>
-      </div>
-      <div class="merch-hero-index" aria-hidden="true"><span>01 / FIRST DROP</span><i></i><span>BREAK THE SILENCE</span></div>
-    </div>
-  </section>
-
-  <section class="merch-catalog" id="collection" aria-labelledby="collectionTitle">
+  <section class="merch-catalog" id="collection" aria-labelledby="collectionTitle" data-preserve-text>
     <div class="w">
-      <div class="merch-section-kicker"><span>01 / THE COLLECTION</span><i></i><span>OFFICIAL SUNNY ELDR MERCHANDISE</span></div>
-      <div class="merch-heading reveal">
-        <div><p class="kicker">THE FIRST PIECE</p><h2 id="collectionTitle">Silence ends <em>here.</em></h2></div>
-        <p>The first official piece from Sunny ELDR and ELDR ÆSTHETIC — monochrome, uncompromising and made to be worn beyond the stage.</p>
+      <header class="merch-heading">
+        <p class="merch-eyebrow" data-merch-de="Offizieller Sunny ELDR Merch">Official Sunny ELDR merch</p>
+        <h1 id="collectionTitle">Merch</h1>
+        <p data-merch-de="Sunny ELDRs Motive auf Oversized-Shirt und Hoodie. Auf Bestellung von Spreadshirt gedruckt und verschickt.">Sunny ELDR’s artwork on an oversized tee and hoodie. Printed to order and shipped by Spreadshirt.</p>
+      </header>
+      <div class="merch-product-grid">
+        <article class="merch-product" id="break-the-silence" aria-labelledby="break-the-silence-title">
+          <div class="merch-gallery">
+            <img data-gallery-main src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT2940A1256DPV2D31497789455523X29Y1116W2907H4400DPV1D31497789845612X982Y-82W758H972/views/2?width=600&amp;height=600&amp;appearanceId=1256" alt="BREAK THE SILENCE · Back" width="600" height="600" fetchpriority="high" decoding="async">
+            <div class="merch-view-options" role="group" aria-label="Product views" hidden>
+              <button type="button" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT2940A1256DPV2D31497789455523X29Y1116W2907H4400DPV1D31497789845612X982Y-82W758H972/views/1?width=600&amp;height=600&amp;appearanceId=1256" data-merch-de="Vorne" aria-pressed="false">Front</button>
+              <button type="button" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT2940A1256DPV2D31497789455523X29Y1116W2907H4400DPV1D31497789845612X982Y-82W758H972/views/2?width=600&amp;height=600&amp;appearanceId=1256" data-merch-de="Hinten" aria-pressed="true">Back</button>
+            </div>
+          </div>
+          <div class="merch-product-copy">
+            <p class="merch-design">BREAK THE SILENCE</p>
+            <h2 id="break-the-silence-title" data-merch-de="Oversized T-Shirt">Oversized T-shirt</h2>
+            <p class="merch-description" data-merch-de="Oversized Unisex-Shirt aus Bio-Baumwolle in Anthrazit meliert mit ELDR-Rune auf der Brust und Sunnys Porträt auf dem Rücken.">Unisex organic cotton tee in mottled anthracite with an ELDR chest rune and Sunny’s portrait on the back.</p>
+            <div class="merch-purchase">
+              <p class="merch-price" data-merch-de="33,99 €">€33.99</p>
+              <p class="merch-price-note" data-merch-de="Standardpreis · Versand bei Spreadshop">Standard price · shipping at Spreadshop</p>
+              <form data-sunny-checkout="break-the-silence" hidden>
+                <div class="merch-size-block">
+                  <label for="break-the-silence-size">Size</label>
+                  <select id="break-the-silence-size" name="size" required>
+                    <option value="" disabled selected>Choose size</option>
+                  </select>
+                </div>
+                <button type="submit" class="merch-buy" disabled>Go to checkout</button>
+                <p class="merch-purchase-note" role="status"></p>
+              </form>
+              <div class="merch-fallback">
+                <a class="merch-buy" href="https://eldr-sthetic.myspreadshop.de/break+the+silence+oversized+tee-A329bf6c241b17d44?sellable=rpfnhpkjb490-2940&amp;appearance=1256" target="_blank" rel="noopener noreferrer" data-merch-de="Im Spreadshop ansehen">View on Spreadshop</a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="merch-product" id="still-here" aria-labelledby="still-here-title">
+          <div class="merch-gallery">
+            <img data-gallery-main src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/2?width=600&amp;height=600&amp;appearanceId=2" alt="STILL HERE · Back" width="600" height="600" loading="lazy" decoding="async">
+            <div class="merch-view-options" role="group" aria-label="Product views" hidden>
+              <button type="button" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/1?width=600&amp;height=600&amp;appearanceId=2" data-merch-de="Vorne" aria-pressed="false">Front</button>
+              <button type="button" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/2?width=600&amp;height=600&amp;appearanceId=2" data-merch-de="Hinten" aria-pressed="true">Back</button>
+              <button type="button" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/4?width=2000&amp;height=2000&amp;appearanceId=2" data-merch-de="Ärmel" aria-pressed="false">Sleeve</button>
+            </div>
+          </div>
+          <div class="merch-product-copy">
+            <p class="merch-design">STILL HERE</p>
+            <h2 id="still-here-title" data-merch-de="Hoodie">Hoodie</h2>
+            <p class="merch-description" data-merch-de="Schwarzer Unisex-Hoodie von AWDis Just Hoods mit ELDR-Brustlogo, Æ am Ärmel und Sunnys Porträt auf dem Rücken.">Black AWDis Just Hoods unisex hoodie with an ELDR chest logo, an Æ mark on the sleeve and Sunny’s portrait on the back.</p>
+            <div class="merch-purchase">
+              <p class="merch-price" data-merch-de="51,99 €">€51.99</p>
+              <p class="merch-price-note" data-merch-de="Standardpreis · Versand bei Spreadshop">Standard price · shipping at Spreadshop</p>
+              <form data-sunny-checkout="still-here-awdis" hidden>
+                <div class="merch-size-block">
+                  <label for="still-here-size">Size</label>
+                  <select id="still-here-size" name="size" required>
+                    <option value="" disabled selected>Choose size</option>
+                  </select>
+                </div>
+                <button type="submit" class="merch-buy" disabled>Go to checkout</button>
+                <p class="merch-purchase-note" role="status"></p>
+              </form>
+              <div class="merch-fallback">
+                <a class="merch-buy" href="https://eldr-sthetic.myspreadshop.de/still+here+hoodie-A329bf8e1cf91764a?sellable=rpfobi1om9my-1047&amp;appearance=2" target="_blank" rel="noopener noreferrer" data-merch-de="Im Spreadshop ansehen">View on Spreadshop</a>
+              </div>
+            </div>
+          </div>
+        </article>
       </div>
-
-      <article class="merch-product">
-        <div class="merch-gallery merch-gallery--arrows-only reveal">
-          <figure class="merch-gallery-stage">
-            <img data-gallery-main fetchpriority="high" decoding="async" src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT2940A1256DPV2D31497789455523X29Y1116W2907H4400DPV1D31497789845612X982Y-82W758H972/views/2?width=600&amp;height=600&amp;appearanceId=1256" alt="BREAK THE SILENCE — back print">
-            <div class="merch-gallery-arrows" aria-label="Product image navigation">
-              <button type="button" data-gallery-prev aria-label="Previous product image">←</button>
-              <button type="button" data-gallery-next aria-label="Next product image">→</button>
-            </div>
-            <figcaption><span data-gallery-position>01 / 02</span><span data-gallery-caption>BACK PRINT</span></figcaption>
-          </figure>
-          <div class="merch-thumbnails" data-count="2" role="group" aria-label="BREAK THE SILENCE product images">
-            <button class="merch-thumbnail is-active" type="button" aria-pressed="true" aria-label="Show back print" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT2940A1256DPV2D31497789455523X29Y1116W2907H4400DPV1D31497789845612X982Y-82W758H972/views/2?width=600&amp;height=600&amp;appearanceId=1256" data-gallery-alt="BREAK THE SILENCE — back print" data-gallery-label="BACK PRINT" data-gallery-position="01 / 02"><img loading="lazy" alt="" src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT2940A1256DPV2D31497789455523X29Y1116W2907H4400DPV1D31497789845612X982Y-82W758H972/views/2?width=100&amp;height=100&amp;appearanceId=1256"></button>
-            <button class="merch-thumbnail" type="button" aria-pressed="false" aria-label="Show front logo" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT2940A1256DPV2D31497789455523X29Y1116W2907H4400DPV1D31497789845612X982Y-82W758H972/views/1?width=600&amp;height=600&amp;appearanceId=1256" data-gallery-alt="BREAK THE SILENCE — front logo" data-gallery-label="FRONT LOGO" data-gallery-position="02 / 02"><img loading="lazy" alt="" src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT2940A1256DPV2D31497789455523X29Y1116W2907H4400DPV1D31497789845612X982Y-82W758H972/views/1?width=100&amp;height=100&amp;appearanceId=1256"></button>
-          </div>
-        </div>
-
-        <div class="merch-product-copy reveal">
-          <div class="merch-product-topline"><span>ELDR ÆSTHETIC / SUNNY ELDR</span><span class="merch-status"><i></i>FIRST DROP</span></div>
-          <h3>BREAK THE SILENCE</h3>
-          <p class="merch-product-subtitle">Premium Organic Oversized Tee</p>
-          <div class="merch-price" data-preserve-text>
-            <div class="merch-price-values"><strong>€33.99</strong></div>
-            <small>Standard price · current offers and shipping at Spreadshop</small>
-          </div>
-          <div class="merch-divider"></div>
-          <p class="merch-description">Premium oversized organic cotton tee in mottled anthracite. A small ELDR rune sits on the left chest, with Sunny ELDR’s ink-and-paint portrait and BREAK THE SILENCE across the back.</p>
-          <p class="merch-manifesto">Streetwear first. Artist merchandise second.</p>
-          <form data-sunny-checkout="break-the-silence" hidden>
-            <div class="merch-size-block">
-              <label for="break-the-silence-size">Size</label>
-              <select id="break-the-silence-size" name="size" required>
-                <option value="" disabled selected>Choose size</option>
-              </select>
-            </div>
-            <button type="submit" class="merch-buy" disabled>Go to checkout</button>
-            <p class="merch-purchase-note" role="status"></p>
-          </form>
-          <div>
-            <p class="merch-purchase-note">Choose your size and see delivery details on Spreadshop.</p>
-            <a class="merch-buy" href="https://eldr-sthetic.myspreadshop.de/break+the+silence+oversized+tee-A329bf6c241b17d44?sellable=rpfnhpkjb490-2940&amp;appearance=1256" target="_blank" rel="noopener noreferrer">Shop on Spreadshop</a>
-          </div>
-          <dl class="merch-specs">
-            <div><dt>Color</dt><dd>Mottled anthracite</dd></div>
-            <div><dt>Fit</dt><dd>Unisex · oversized</dd></div>
-            <div><dt>Print</dt><dd>Left chest logo · large back print</dd></div>
-            <div><dt>Production</dt><dd>Printed to order by Spreadshirt</dd></div>
-          </dl>
-        </div>
-      </article>
-
-      <div class="merch-product-separator" aria-hidden="true"></div>
-
-      <article class="merch-product">
-        <div class="merch-gallery reveal">
-          <figure class="merch-gallery-stage">
-            <img data-gallery-main loading="lazy" decoding="async" src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/2?width=600&amp;height=600&amp;appearanceId=2" alt="STILL HERE — back print">
-            <figcaption><span data-gallery-position>01 / 03</span><span data-gallery-caption>BACK PRINT</span></figcaption>
-          </figure>
-          <div class="merch-thumbnails" data-count="3" role="group" aria-label="STILL HERE product images">
-            <button class="merch-thumbnail is-active" type="button" aria-pressed="true" aria-label="Show back print" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/2?width=600&amp;height=600&amp;appearanceId=2" data-gallery-alt="STILL HERE — back print" data-gallery-label="BACK PRINT" data-gallery-position="01 / 03"><img loading="lazy" alt="" src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/2?width=100&amp;height=100&amp;appearanceId=2"></button>
-            <button class="merch-thumbnail" type="button" aria-pressed="false" aria-label="Show front logo" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/1?width=600&amp;height=600&amp;appearanceId=2" data-gallery-alt="STILL HERE — front logo" data-gallery-label="FRONT LOGO" data-gallery-position="02 / 03"><img loading="lazy" alt="" src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/1?width=100&amp;height=100&amp;appearanceId=2"></button>
-            <button class="merch-thumbnail" type="button" aria-pressed="false" aria-label="Show left sleeve" data-gallery-src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/4?width=2000&amp;height=2000&amp;appearanceId=2" data-gallery-alt="STILL HERE — left sleeve" data-gallery-label="LEFT SLEEVE" data-gallery-position="03 / 03"><img loading="lazy" alt="" src="https://image.spreadshirtmedia.net/image-server/v1/products/DPT1047A2DPV2D31498074023514X7Y1307W2349H4140DPV4D31498073740119X17Y-1472W935H778DPV1D31498074216836X957Y196W872H1000/views/4?width=100&amp;height=100&amp;appearanceId=2"></button>
-          </div>
-        </div>
-
-        <div class="merch-product-copy reveal">
-          <div class="merch-product-topline"><span>ELDR ÆSTHETIC / SUNNY ELDR</span><span class="merch-status"><i></i>SECOND PIECE</span></div>
-          <h3>STILL HERE</h3>
-          <p class="merch-product-subtitle">AWDis Just Hoods Unisex Hoodie</p>
-          <div class="merch-price" data-preserve-text>
-            <div class="merch-price-values"><strong>€51.99</strong></div>
-            <small>Standard price · current offers and shipping at Spreadshop</small>
-          </div>
-          <div class="merch-divider"></div>
-          <p class="merch-description">Black regular-fit AWDis Just Hoods hoodie with a brushed interior, a small ELDR chest logo, an Æ mark on the left sleeve, and Sunny ELDR’s cream STILL HERE portrait across the back.</p>
-          <p class="merch-manifesto">Monochrome. Quiet from the front, loud from behind.</p>
-          <form data-sunny-checkout="still-here-awdis" hidden>
-            <div class="merch-size-block">
-              <label for="still-here-size">Size</label>
-              <select id="still-here-size" name="size" required>
-                <option value="" disabled selected>Choose size</option>
-              </select>
-            </div>
-            <button type="submit" class="merch-buy" disabled>Go to checkout</button>
-            <p class="merch-purchase-note" role="status"></p>
-          </form>
-          <div>
-            <p class="merch-purchase-note">Choose your size and see delivery details on Spreadshop.</p>
-            <a class="merch-buy" href="https://eldr-sthetic.myspreadshop.de/still+here+hoodie-A329bf8e1cf91764a?sellable=rpfobi1om9my-1047&amp;appearance=2" target="_blank" rel="noopener noreferrer">Shop on Spreadshop</a>
-          </div>
-          <dl class="merch-specs">
-            <div><dt>Color</dt><dd>Black</dd></div>
-            <div><dt>Fit</dt><dd>Unisex · regular fit</dd></div>
-            <div><dt>Print</dt><dd>Left chest logo · large back print · Æ on the left sleeve</dd></div>
-            <div><dt>Production</dt><dd>Printed to order by Spreadshirt</dd></div>
-          </dl>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <aside class="merch-trust" aria-label="Shop information">
-    <div class="w merch-trust-inner">
-      <div><span>01</span><p><strong>SECURE CHECKOUT</strong><small>Checkout at Spreadshop</small></p></div>
-      <div><span>02</span><p><strong>PRINTED TO ORDER</strong><small>Produced and fulfilled by Spreadshirt</small></p></div>
-      <div><span>03</span><p><strong>SIZES &amp; DELIVERY</strong><small>Size charts and shipping details at Spreadshop</small></p></div>
-    </div>
-  </aside>
-
-  <section class="merch-story" aria-labelledby="storyTitle">
-    <div class="w merch-story-layout">
-      <div><p class="kicker">02 / BEYOND THE STAGE</p><h2 id="storyTitle">MADE TO BE<br><em>WORN.</em></h2></div>
-      <div class="merch-story-copy"><p>ELDR ÆSTHETIC turns the raw energy of Sunny ELDR into wearable pieces. Monochrome designs, heavy Nordic atmosphere and uncompromising expression — made to be worn beyond the stage.</p><span>SOUND / IDENTITY / EXPRESSION</span></div>
     </div>
   </section>
 </main>
@@ -270,61 +203,49 @@ if(localStorage.getItem('sunnyAnalyticsConsent') === 'accepted'){
 </div>
 <script src="site.js" defer></script>
 <script>
-"use strict";
-document.querySelectorAll(".merch-product").forEach((product) => {
-    const mainImage = product.querySelector("[data-gallery-main]");
-    const stage = product.querySelector(".merch-gallery-stage");
-    const caption = product.querySelector("[data-gallery-caption]");
-    const position = product.querySelector("[data-gallery-position]");
-    const thumbnails = [...product.querySelectorAll(".merch-thumbnail")];
-    const previousButton = product.querySelector("[data-gallery-prev]");
-    const nextButton = product.querySelector("[data-gallery-next]");
+(() => {
+  const copy = (en, de) => document.documentElement.lang === "de" ? de : en;
+  const labels = Array.from(document.querySelectorAll("[data-merch-de]"), (node) => [node, node.textContent]);
+  const translate = () => {
+    for (const [node, english] of labels) {
+      node.textContent = copy(english, node.dataset.merchDe);
+    }
+  };
+  translate();
+  window.addEventListener("sunny:languagechange", translate);
 
-    const selectImage = (button) => {
-      const nextSrc = button?.dataset.gallerySrc;
-      if (!mainImage || !stage || !caption || !position || !nextSrc) return;
+  document.querySelectorAll(".merch-product").forEach((product) => {
+    const image = product.querySelector("[data-gallery-main]");
+    const design = product.querySelector(".merch-design").textContent;
+    const options = product.querySelector(".merch-view-options");
+    const buttons = [...options.querySelectorAll("button")];
+    let selected = options.querySelector('[aria-pressed="true"]');
+    const updateLabels = () => {
+      image.alt = design + " · " + selected.textContent;
+      options.setAttribute("aria-label", copy("Product views", "Produktansichten"));
+    };
 
-      thumbnails.forEach((thumbnail) => {
-        const selected = thumbnail === button;
-        thumbnail.classList.toggle("is-active", selected);
-        thumbnail.setAttribute("aria-pressed", String(selected));
+    for (const button of buttons) {
+      button.addEventListener("click", () => {
+        if (button === selected) return;
+        selected.setAttribute("aria-pressed", "false");
+        selected = button;
+        selected.setAttribute("aria-pressed", "true");
+        image.src = selected.dataset.gallerySrc;
+        updateLabels();
       });
-
-      stage.classList.add("is-changing");
-      mainImage.alt = button.dataset.galleryAlt || "Product image";
-      caption.textContent = button.dataset.galleryLabel || "PRODUCT VIEW";
-      position.textContent = button.dataset.galleryPosition || "";
-      mainImage.addEventListener("load", () => stage.classList.remove("is-changing"), { once: true });
-      mainImage.addEventListener("error", () => stage.classList.remove("is-changing"), { once: true });
-      mainImage.src = nextSrc;
-    };
-
-    const moveImage = (direction) => {
-      if (!thumbnails.length) return;
-      const activeIndex = Math.max(0, thumbnails.findIndex((thumbnail) => thumbnail.classList.contains("is-active")));
-      const nextIndex = (activeIndex + direction + thumbnails.length) % thumbnails.length;
-      selectImage(thumbnails[nextIndex]);
-    };
-
-    thumbnails.forEach((button) => {
-      button.addEventListener("click", () => selectImage(button));
-    });
-    previousButton?.addEventListener("click", () => moveImage(-1));
-    nextButton?.addEventListener("click", () => moveImage(1));
-
-});
+    }
+    options.hidden = false;
+    updateLabels();
+    window.addEventListener("sunny:languagechange", updateLabels);
+  });
+})();
 </script>
 
 <script>
 (() => {
   const endpoint = "https://sunny-eldr-merch-checkout.sash-kelch.workers.dev";
   const copy = (en, de) => document.documentElement.lang === "de" ? de : en;
-  const collectionLink = document.querySelector("[data-merch-collection]");
-  const translateCollectionLink = () => {
-    collectionLink.textContent = copy("Shop the collection ↓", "Merch auswählen ↓");
-  };
-  translateCollectionLink();
-  window.addEventListener("sunny:languagechange", translateCollectionLink);
 
   document.querySelectorAll("[data-sunny-checkout]").forEach(async (form) => {
     const product = form.dataset.sunnyCheckout;
