@@ -7,7 +7,7 @@ const shopCheckoutPath = "/checkout/";
 const allowedOrigins = new Set(["https://sunnyeldr.com", "https://www.sunnyeldr.com"]);
 const products = new Map([
   ["break-the-silence", { typeId: "2940", appearanceId: "1256", sellableId: "rpfnhpkjb490-2940" }],
-  ["still-here-heavyweight", { typeId: "2963", appearanceId: "1257", sellableId: "rpfobi1om9my-2963" }],
+  ["still-here-cruiser", { typeId: "2091", appearanceId: "2", sellableId: "rpfobi1om9my-2091" }],
 ]);
 
 async function spreadshirt(key, path, payload) {
