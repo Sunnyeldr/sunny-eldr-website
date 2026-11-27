@@ -8,6 +8,7 @@ const allowedOrigins = new Set(["https://sunnyeldr.com", "https://www.sunnyeldr.
 const products = new Map([
   ["break-the-silence", { typeId: "2940", appearanceId: "1256", sellableId: "rpfnhpkjb490-2940" }],
   ["still-here-cruiser", { typeId: "2091", appearanceId: "2", sellableId: "rpfobi1om9my-2091" }],
+  ["still-here-awdis", { typeId: "1047", appearanceId: "2", sellableId: "rpfobi1om9my-1047" }],
 ]);
 
 async function spreadshirt(key, path, payload) {
