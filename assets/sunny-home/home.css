@@ -194,6 +194,7 @@ section[id],article[id]{scroll-margin-top:22px}
   padding:clamp(4px,.9vw,14px);
   background:#e7e5e2;
   object-fit:contain;
+  filter:contrast(1.08) brightness(.97);
 }
 .shop-preview-card-body{padding:clamp(11px,1.5vw,19px)}
 .shop-preview-design{font-size:clamp(8px,.85vw,10px)}

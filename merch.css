@@ -82,13 +82,14 @@
 .merch-gallery{
   position:relative;
   aspect-ratio:1;
-  background:radial-gradient(ellipse at 50% 28%,#4b4743,#30302f 69%,#2a2928);
+  background:radial-gradient(ellipse at 50% 26%,#39373a,#28272a 70%,#202023);
 }
 .merch-gallery img{
   width:100%;
   height:100%;
   padding:12px 12px 51px;
   object-fit:contain;
+  filter:contrast(1.12);
 }
 .merch-view-options{
   position:absolute;
@@ -142,7 +143,6 @@
   padding-top:15px;
   border-top:1px solid var(--line);
 }
-.merch-availability{margin:0;color:var(--muted);font-size:14px}
 .merch-price{
   margin:0;
   text-align:right;
