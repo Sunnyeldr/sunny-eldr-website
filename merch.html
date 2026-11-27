@@ -356,7 +356,7 @@ document.querySelectorAll(".merch-product").forEach((product) => {
     const refreshCopy = () => {
       form.querySelector("label").textContent = copy("Size", "Größe");
       placeholder.textContent = copy("Choose size", "Größe wählen");
-      submit.disabled = opening || !size.value;
+      submit.disabled = opening;
       submit.textContent = opening
         ? copy("Opening checkout…", "Kasse wird geöffnet …")
         : copy("Go to checkout", "Zur Kasse");
@@ -379,6 +379,11 @@ document.querySelectorAll(".merch-product").forEach((product) => {
     window.addEventListener("sunny:languagechange", refreshCopy);
     if (soldOut) return;
 
+    size.addEventListener("invalid", (event) => {
+      event.preventDefault();
+      status.textContent = copy("Choose a size to continue.", "Wähle zuerst eine Größe.");
+      size.focus();
+    });
     size.addEventListener("change", refreshCopy);
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
