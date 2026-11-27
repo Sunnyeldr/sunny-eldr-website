@@ -201,7 +201,7 @@ section[id],article[id]{scroll-margin-top:22px}
   margin-top:5px;
   font:400 clamp(16px,1.8vw,23px)/1.2 var(--display);
 }
-.shop-preview-price{
+.shop-preview-caption{
   margin-top:6px;
   color:var(--shop-muted);
   font-size:14px;
